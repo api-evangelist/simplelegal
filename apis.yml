@@ -9,8 +9,7 @@ type: Index
 position: Consumer
 access: 3rd-Party
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-tags:
-  - API
+tags: []
 created: '2025-03-01'
 modified: '2026-03-16'
 url: >-
@@ -25,8 +24,7 @@ apis:
       features, like HTTP authentication and HTTP verbs, which are understood by off-the-shelf
       HTTP clients.
     humanURL: ' https://developer.simplelegal.com/'
-    tags:
-      - API
+    tags: []
     properties:
       - type: Documentation
         url: ' https://developer.simplelegal.com/'
