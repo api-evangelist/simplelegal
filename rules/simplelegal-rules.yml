@@ -1,0 +1,89 @@
+extends: "spectral:oas"
+rules:
+  simplelegal-summary-title-case:
+    description: Operation summaries must use Title Case.
+    message: "Summary '{{value}}' must be in Title Case."
+    severity: warn
+    given: "$.paths[*][*].summary"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z][a-zA-Z0-9]*([ ][A-Z][a-zA-Z0-9]*)*$"
+
+  simplelegal-operationid-kebab-case:
+    description: OperationIds must use kebab-case naming.
+    message: "OperationId '{{value}}' must use kebab-case."
+    severity: warn
+    given: "$.paths[*][*].operationId"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-z0-9]*(-[a-z0-9]+)*$"
+
+  simplelegal-pagination-params:
+    description: Collection GET endpoints should support page and page_size parameters.
+    message: "Collection endpoint should support pagination parameters."
+    severity: info
+    given: "$.paths[?(!@property.match(/{.*}/))].get.parameters[*].name"
+    then:
+      function: enumeration
+      functionOptions:
+        values:
+          - page
+          - page_size
+          - status
+          - matter_id
+          - vendor_id
+          - type
+          - active
+
+  simplelegal-basic-auth:
+    description: API must use HTTP Basic authentication.
+    message: "API should use HTTP Basic authentication."
+    severity: warn
+    given: "$.components.securitySchemes[*].scheme"
+    then:
+      function: enumeration
+      functionOptions:
+        values:
+          - basic
+
+  simplelegal-patch-update:
+    description: Update operations should prefer PATCH over PUT.
+    message: "Update operations should use PATCH for partial updates."
+    severity: info
+    given: "$.paths[*].put.operationId"
+    then:
+      function: falsy
+
+  simplelegal-json-responses:
+    description: All responses should return application/json.
+    message: "Response should include application/json content type."
+    severity: warn
+    given: "$.paths[*][*].responses[?(@property >= '200')].content"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          required:
+            - "application/json"
+
+  simplelegal-error-responses:
+    description: Operations should document authentication and not-found error responses.
+    message: "Operation should document error responses (401, 404)."
+    severity: info
+    given: "$.paths[*][*].responses"
+    then:
+      function: truthy
+
+  simplelegal-descriptions-required:
+    description: All paths and operations must have descriptions.
+    message: "{{property}} is missing a description."
+    severity: warn
+    given:
+      - "$.paths[*][*]"
+      - "$.info"
+    then:
+      field: description
+      function: truthy

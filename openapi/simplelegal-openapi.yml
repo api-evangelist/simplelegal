@@ -1,0 +1,868 @@
+openapi: 3.0.3
+info:
+  title: SimpleLegal API
+  description: >-
+    The SimpleLegal API is organized around REST. The API has predictable,
+    resource-oriented URLs and uses HTTP response codes to indicate API errors.
+    It uses built-in HTTP features like HTTP authentication and HTTP verbs.
+    JSON is returned by all API responses, including errors. The API supports
+    PATCH methods throughout; POST can be used instead of PATCH for systems that
+    cannot use PATCH. Pagination defaults to 25 items per page and can be
+    configured with the page_size query parameter.
+  version: '1.0'
+  contact:
+    name: SimpleLegal Support
+    url: https://support.simplelegal.com/
+  termsOfService: https://www.simplelegal.com/terms-of-service
+servers:
+  - url: https://app.simplelegal.com/api/v1
+    description: SimpleLegal Production API
+
+security:
+  - basicAuth: []
+
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic Authentication using your SimpleLegal API credentials.
+
+  schemas:
+    Matter:
+      type: object
+      description: A legal matter representing a case, project, or legal engagement.
+      properties:
+        id:
+          type: string
+          description: Unique matter identifier.
+        name:
+          type: string
+          description: Matter name or title.
+        matter_number:
+          type: string
+          description: Internal matter reference number.
+        status:
+          type: string
+          description: Current matter status.
+          enum: [open, closed, pending, on_hold]
+        practice_area:
+          type: string
+          description: Legal practice area for the matter.
+        description:
+          type: string
+          description: Detailed description of the matter.
+        client:
+          type: string
+          description: Internal client or business unit for the matter.
+        lead_attorney:
+          type: string
+          description: Primary attorney responsible for the matter.
+        outside_counsel:
+          type: string
+          description: Outside law firm handling the matter.
+        budget:
+          type: number
+          format: float
+          description: Total budget allocated for the matter.
+        actual_spend:
+          type: number
+          format: float
+          description: Total actual spend on the matter to date.
+        accruals:
+          type: number
+          format: float
+          description: Accrued but unpaid costs for the matter.
+        created_at:
+          type: string
+          format: date-time
+          description: Timestamp when the matter was created.
+        updated_at:
+          type: string
+          format: date-time
+          description: Timestamp when the matter was last updated.
+        custom_fields:
+          type: object
+          description: Custom field values specific to the organization.
+          additionalProperties: true
+      required: [name]
+
+    Invoice:
+      type: object
+      description: A legal invoice submitted by outside counsel or vendors.
+      properties:
+        id:
+          type: string
+          description: Unique invoice identifier.
+        invoice_number:
+          type: string
+          description: Vendor-assigned invoice reference number.
+        matter_id:
+          type: string
+          description: ID of the matter this invoice is associated with.
+        vendor_id:
+          type: string
+          description: ID of the vendor (law firm or service provider) submitting the invoice.
+        status:
+          type: string
+          description: Current invoice processing status.
+          enum: [pending, approved, rejected, paid, disputed, hold]
+        invoice_date:
+          type: string
+          format: date
+          description: Date the invoice was issued.
+        due_date:
+          type: string
+          format: date
+          description: Payment due date.
+        currency:
+          type: string
+          description: ISO 4217 currency code (e.g., USD, EUR, GBP).
+        total_amount:
+          type: number
+          format: float
+          description: Total invoice amount before any adjustments.
+        approved_amount:
+          type: number
+          format: float
+          description: Amount approved for payment after review.
+        line_items:
+          type: array
+          description: Individual billable time and expense line items.
+          items:
+            $ref: '#/components/schemas/InvoiceLineItem'
+        created_at:
+          type: string
+          format: date-time
+          description: Timestamp when the invoice was received.
+        updated_at:
+          type: string
+          format: date-time
+          description: Timestamp when the invoice was last updated.
+      required: [invoice_number, matter_id, vendor_id, total_amount]
+
+    InvoiceLineItem:
+      type: object
+      description: An individual time or expense entry on an invoice.
+      properties:
+        id:
+          type: string
+          description: Unique line item identifier.
+        type:
+          type: string
+          description: Type of line item.
+          enum: [fee, expense, tax, discount]
+        description:
+          type: string
+          description: Description of the work performed or expense incurred.
+        timekeeper:
+          type: string
+          description: Name of the timekeeper (attorney, paralegal) who performed the work.
+        hours:
+          type: number
+          format: float
+          description: Hours billed for fee entries.
+        rate:
+          type: number
+          format: float
+          description: Hourly rate for fee entries.
+        amount:
+          type: number
+          format: float
+          description: Total amount for this line item.
+        task_code:
+          type: string
+          description: UTBMS task code for the work performed.
+        activity_code:
+          type: string
+          description: UTBMS activity code for the work performed.
+
+    Vendor:
+      type: object
+      description: An outside counsel law firm or legal service vendor.
+      properties:
+        id:
+          type: string
+          description: Unique vendor identifier.
+        name:
+          type: string
+          description: Vendor (law firm or service provider) name.
+        type:
+          type: string
+          description: Type of vendor.
+          enum: [law_firm, service_provider, expert_witness, other]
+        status:
+          type: string
+          description: Vendor status in the system.
+          enum: [active, inactive, preferred, on_hold]
+        contact_name:
+          type: string
+          description: Primary contact name at the vendor.
+        contact_email:
+          type: string
+          format: email
+          description: Primary contact email address.
+        address:
+          type: object
+          description: Vendor mailing address.
+          properties:
+            street:
+              type: string
+            city:
+              type: string
+            state:
+              type: string
+            zip:
+              type: string
+            country:
+              type: string
+        diversity_info:
+          type: object
+          description: Vendor diversity classification information.
+        created_at:
+          type: string
+          format: date-time
+          description: Timestamp when the vendor was added.
+        updated_at:
+          type: string
+          format: date-time
+          description: Timestamp when the vendor was last updated.
+      required: [name]
+
+    CostCode:
+      type: object
+      description: A billing or cost code used to categorize legal spend.
+      properties:
+        id:
+          type: string
+          description: Unique cost code identifier.
+        code:
+          type: string
+          description: The cost code string (e.g., task code, GL code).
+        name:
+          type: string
+          description: Human-readable name for the cost code.
+        description:
+          type: string
+          description: Description of the cost code's purpose.
+        type:
+          type: string
+          description: Type of cost code.
+          enum: [task, activity, gl, custom]
+        active:
+          type: boolean
+          description: Whether the cost code is currently active.
+      required: [code, name]
+
+    User:
+      type: object
+      description: A SimpleLegal platform user.
+      properties:
+        id:
+          type: string
+          description: Unique user identifier.
+        email:
+          type: string
+          format: email
+          description: User's email address (login username).
+        first_name:
+          type: string
+          description: User's first name.
+        last_name:
+          type: string
+          description: User's last name.
+        role:
+          type: string
+          description: User role in SimpleLegal.
+          enum: [admin, attorney, manager, viewer]
+        status:
+          type: string
+          description: Account status.
+          enum: [active, inactive]
+        department:
+          type: string
+          description: Internal department the user belongs to.
+        created_at:
+          type: string
+          format: date-time
+          description: Timestamp when the user was created.
+      required: [email, first_name, last_name]
+
+    Payment:
+      type: object
+      description: A payment record for an approved invoice.
+      properties:
+        id:
+          type: string
+          description: Unique payment identifier.
+        invoice_id:
+          type: string
+          description: ID of the invoice being paid.
+        amount:
+          type: number
+          format: float
+          description: Payment amount.
+        currency:
+          type: string
+          description: ISO 4217 currency code.
+        payment_date:
+          type: string
+          format: date
+          description: Date payment was made.
+        reference:
+          type: string
+          description: Payment reference number (check number, wire reference, etc.).
+        created_at:
+          type: string
+          format: date-time
+          description: Timestamp when the payment was recorded.
+      required: [invoice_id, amount, payment_date]
+
+    PaginatedResponse:
+      type: object
+      properties:
+        count:
+          type: integer
+          description: Total number of items matching the query.
+        next:
+          type: string
+          nullable: true
+          description: URL for the next page of results.
+        previous:
+          type: string
+          nullable: true
+          description: URL for the previous page of results.
+        results:
+          type: array
+          description: The paginated list of results.
+          items: {}
+
+    Error:
+      type: object
+      properties:
+        detail:
+          type: string
+          description: Human-readable error description.
+        code:
+          type: string
+          description: Machine-readable error code.
+
+paths:
+  /matters:
+    get:
+      operationId: list-matters
+      summary: List Matters
+      description: Retrieve a paginated list of legal matters.
+      tags:
+        - Matters
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+          description: Page number for pagination.
+        - name: page_size
+          in: query
+          schema:
+            type: integer
+            default: 25
+            maximum: 100
+          description: Number of results per page (max 100).
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum: [open, closed, pending, on_hold]
+          description: Filter matters by status.
+        - name: practice_area
+          in: query
+          schema:
+            type: string
+          description: Filter matters by practice area.
+      responses:
+        '200':
+          description: Paginated list of matters.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/PaginatedResponse'
+                  - properties:
+                      results:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Matter'
+        '401':
+          description: Authentication required.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+    post:
+      operationId: create-matter
+      summary: Create Matter
+      description: Create a new legal matter.
+      tags:
+        - Matters
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Matter'
+      responses:
+        '201':
+          description: Matter created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Matter'
+        '400':
+          description: Invalid request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /matters/{id}:
+    get:
+      operationId: get-matter
+      summary: Get Matter
+      description: Retrieve a specific legal matter by ID.
+      tags:
+        - Matters
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Matter ID.
+      responses:
+        '200':
+          description: Matter details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Matter'
+        '404':
+          description: Matter not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+    patch:
+      operationId: update-matter
+      summary: Update Matter
+      description: Update fields on an existing legal matter.
+      tags:
+        - Matters
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Matter ID.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Matter'
+      responses:
+        '200':
+          description: Updated matter.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Matter'
+
+  /invoices:
+    get:
+      operationId: list-invoices
+      summary: List Invoices
+      description: Retrieve a paginated list of invoices.
+      tags:
+        - Invoices
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+          description: Page number.
+        - name: page_size
+          in: query
+          schema:
+            type: integer
+            default: 25
+          description: Results per page.
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum: [pending, approved, rejected, paid, disputed, hold]
+          description: Filter by invoice status.
+        - name: matter_id
+          in: query
+          schema:
+            type: string
+          description: Filter invoices by matter ID.
+        - name: vendor_id
+          in: query
+          schema:
+            type: string
+          description: Filter invoices by vendor ID.
+      responses:
+        '200':
+          description: Paginated list of invoices.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/PaginatedResponse'
+                  - properties:
+                      results:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Invoice'
+
+    post:
+      operationId: create-invoice
+      summary: Create Invoice
+      description: Submit a new invoice for processing.
+      tags:
+        - Invoices
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Invoice'
+      responses:
+        '201':
+          description: Invoice created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invoice'
+
+  /invoices/{id}:
+    get:
+      operationId: get-invoice
+      summary: Get Invoice
+      description: Retrieve a specific invoice by ID.
+      tags:
+        - Invoices
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Invoice ID.
+      responses:
+        '200':
+          description: Invoice details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invoice'
+        '404':
+          description: Invoice not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+    patch:
+      operationId: update-invoice
+      summary: Update Invoice
+      description: Update fields on an existing invoice.
+      tags:
+        - Invoices
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Invoice ID.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Invoice'
+      responses:
+        '200':
+          description: Updated invoice.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invoice'
+
+  /vendors:
+    get:
+      operationId: list-vendors
+      summary: List Vendors
+      description: Retrieve a paginated list of vendors (law firms and service providers).
+      tags:
+        - Vendors
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+          description: Page number.
+        - name: page_size
+          in: query
+          schema:
+            type: integer
+            default: 25
+          description: Results per page.
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum: [active, inactive, preferred, on_hold]
+          description: Filter by vendor status.
+      responses:
+        '200':
+          description: Paginated list of vendors.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/PaginatedResponse'
+                  - properties:
+                      results:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Vendor'
+
+    post:
+      operationId: create-vendor
+      summary: Create Vendor
+      description: Create a new vendor (law firm or service provider).
+      tags:
+        - Vendors
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Vendor'
+      responses:
+        '201':
+          description: Vendor created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vendor'
+
+  /vendors/{id}:
+    get:
+      operationId: get-vendor
+      summary: Get Vendor
+      description: Retrieve a specific vendor by ID.
+      tags:
+        - Vendors
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Vendor ID.
+      responses:
+        '200':
+          description: Vendor details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vendor'
+
+    patch:
+      operationId: update-vendor
+      summary: Update Vendor
+      description: Update fields on an existing vendor.
+      tags:
+        - Vendors
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Vendor ID.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Vendor'
+      responses:
+        '200':
+          description: Updated vendor.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vendor'
+
+  /cost-codes:
+    get:
+      operationId: list-cost-codes
+      summary: List Cost Codes
+      description: Retrieve a list of all billing and cost codes.
+      tags:
+        - Cost Codes
+      parameters:
+        - name: type
+          in: query
+          schema:
+            type: string
+            enum: [task, activity, gl, custom]
+          description: Filter by cost code type.
+        - name: active
+          in: query
+          schema:
+            type: boolean
+          description: Filter by active status.
+      responses:
+        '200':
+          description: List of cost codes.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/PaginatedResponse'
+                  - properties:
+                      results:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/CostCode'
+
+  /users:
+    get:
+      operationId: list-users
+      summary: List Users
+      description: Retrieve a paginated list of platform users.
+      tags:
+        - Users
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+          description: Page number.
+        - name: page_size
+          in: query
+          schema:
+            type: integer
+            default: 25
+          description: Results per page.
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum: [active, inactive]
+          description: Filter by user status.
+      responses:
+        '200':
+          description: Paginated list of users.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/PaginatedResponse'
+                  - properties:
+                      results:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/User'
+
+    post:
+      operationId: create-user
+      summary: Create User
+      description: Create a new platform user.
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '201':
+          description: User created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+
+  /payments:
+    get:
+      operationId: list-payments
+      summary: List Payments
+      description: Retrieve a paginated list of invoice payments.
+      tags:
+        - Payments
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+          description: Page number.
+        - name: page_size
+          in: query
+          schema:
+            type: integer
+            default: 25
+          description: Results per page.
+        - name: invoice_id
+          in: query
+          schema:
+            type: string
+          description: Filter payments by invoice ID.
+      responses:
+        '200':
+          description: Paginated list of payments.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/PaginatedResponse'
+                  - properties:
+                      results:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Payment'
+
+    post:
+      operationId: create-payment
+      summary: Create Payment
+      description: Record a payment for an approved invoice.
+      tags:
+        - Payments
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Payment'
+      responses:
+        '201':
+          description: Payment recorded successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payment'

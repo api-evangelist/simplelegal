@@ -1,0 +1,167 @@
+name: SimpleLegal Vocabulary
+description: >-
+  Vocabulary and taxonomy for SimpleLegal, the enterprise legal management platform
+  by Onit. Covers legal operations, matter management, eBilling, spend management,
+  vendor relations, and legal analytics domains.
+version: '1.0'
+created: '2026-05-02'
+modified: '2026-05-02'
+
+domains:
+  - name: Matter Management
+    description: Core concepts for managing legal matters and cases.
+    terms:
+      - name: Matter
+        label: Legal Matter
+        description: >-
+          A legal engagement, case, project, or transaction tracked in SimpleLegal.
+          Each matter has a practice area, status, budget, assigned counsel, and
+          associated invoices.
+      - name: Matter Number
+        label: Matter Number
+        description: An internal reference identifier assigned to each matter for tracking purposes.
+      - name: Practice Area
+        label: Practice Area
+        description: >-
+          The area of law governing a matter (e.g., Litigation, Intellectual Property,
+          Employment, Contract, Real Estate, M&A, Regulatory).
+      - name: Legal Hold
+        label: Legal Hold
+        description: A preservation notice requiring retention of all matter-related documents and communications.
+      - name: Matter Status
+        label: Matter Status
+        description: >-
+          The current lifecycle state of a matter: open (active), pending (awaiting action),
+          on_hold (suspended), closed (completed or resolved).
+      - name: Accrual
+        label: Accrual
+        description: >-
+          Estimated costs incurred but not yet invoiced, used for financial forecasting
+          and budget management at the matter level.
+      - name: Budget
+        label: Matter Budget
+        description: The total allocated spend ceiling approved for a legal matter.
+      - name: Task Management
+        label: Task Management
+        description: Integrated task tracking within matter management for deadlines and workload prioritization.
+
+  - name: eBilling and Invoicing
+    description: Legal invoice processing and billing guidelines concepts.
+    terms:
+      - name: Invoice
+        label: Legal Invoice
+        description: >-
+          A bill submitted by outside counsel or a legal service vendor for legal
+          services rendered, containing time and expense line items.
+      - name: Line Item
+        label: Invoice Line Item
+        description: An individual time entry or expense record within an invoice.
+      - name: UTBMS
+        label: Uniform Task-Based Management System
+        description: >-
+          The industry-standard coding system for categorizing legal time and expenses
+          using task codes (L-codes) and activity codes (A-codes).
+      - name: Task Code
+        label: Task Code
+        description: >-
+          A UTBMS code identifying the type of legal work performed
+          (e.g., L110 for fact investigation, L120 for analysis/strategy).
+      - name: Activity Code
+        label: Activity Code
+        description: >-
+          A UTBMS code identifying the specific activity within a task
+          (e.g., A101 for planning/analysis, A102 for research).
+      - name: Timekeeper
+        label: Timekeeper
+        description: An attorney, paralegal, or other legal professional who bills time to a matter.
+      - name: Billing Guidelines
+        label: Billing Guidelines
+        description: >-
+          Rules set by the legal department governing how outside counsel must bill
+          (e.g., no block billing, maximum rates per timekeeper level).
+      - name: Invoice Status
+        label: Invoice Status
+        description: >-
+          The processing state of an invoice: pending (under review), approved (accepted),
+          rejected (denied), paid (payment processed), disputed (contested), hold (suspended).
+      - name: Duplicate Invoice Detection
+        label: Duplicate Invoice Detection
+        description: >-
+          Automated detection of duplicate invoices or line items to prevent double payment.
+
+  - name: Spend Management
+    description: Legal spend tracking, forecasting, and analytics.
+    terms:
+      - name: Legal Spend
+        label: Legal Spend
+        description: The total external costs incurred for legal services from outside counsel and vendors.
+      - name: Budget vs. Actual
+        label: Budget vs. Actual Analysis
+        description: Comparison of approved matter budget against actual billed and paid amounts.
+      - name: Spend Forecast
+        label: Spend Forecast
+        description: Forward-looking projection of legal costs for budgeting and financial planning.
+      - name: Cost Code
+        label: Cost Code
+        description: >-
+          A code (GL code, UTBMS code, or custom code) used to categorize and classify
+          legal spend for accounting and reporting purposes.
+
+  - name: Vendor Management
+    description: Outside counsel and legal service vendor relationship management.
+    terms:
+      - name: Outside Counsel
+        label: Outside Counsel
+        description: External law firms retained to provide legal services on behalf of the organization.
+      - name: Preferred Vendor
+        label: Preferred Vendor
+        description: >-
+          A law firm or service provider with a negotiated rate agreement and preferred
+          status in the organization's vendor management program.
+      - name: CounselGO
+        label: CounselGO
+        description: SimpleLegal's vendor portal enabling outside counsel to submit invoices and collaborate with the legal team.
+      - name: Diversity Tracking
+        label: Diversity Tracking
+        description: >-
+          Classification and tracking of outside counsel diversity attributes including
+          minority-owned, woman-owned, LGBTQ+-owned, and veteran-owned firms.
+      - name: Rate Card
+        label: Rate Card
+        description: The agreed-upon billing rates for different timekeeper levels at a vendor.
+
+  - name: Legal Operations
+    description: Cross-functional legal operations management and automation.
+    terms:
+      - name: Legal Request
+        label: Legal Request
+        description: >-
+          An intake request submitted by a business unit to the legal department,
+          initiating the creation of a new legal matter.
+      - name: AskAI
+        label: AskAI
+        description: >-
+          SimpleLegal's conversational AI capability enabling legal teams to ask
+          natural language questions about invoices, matters, vendors, and spend data.
+      - name: ELM
+        label: Enterprise Legal Management
+        description: >-
+          The category of software encompassing matter management, eBilling, spend
+          analytics, and legal operations management for corporate legal departments.
+      - name: Legal Operations
+        label: Legal Operations
+        description: >-
+          The business discipline focused on improving the efficiency, effectiveness,
+          and strategic impact of the in-house legal department.
+
+integrations:
+  - name: ERP Systems
+    description: Integration with SAP, Oracle, and other ERP systems for AP/GL data synchronization.
+  - name: Accounts Payable
+    description: Bidirectional data exchange with AP systems to eliminate manual invoice entry.
+  - name: Salesforce
+    description: CRM integration for matter intake tied to business opportunities.
+  - name: DocuSign
+    description: Contract signing integration for legal agreements.
+  - name: Onit Unity
+    description: Parent platform combining SimpleLegal with broader Onit workflow capabilities.

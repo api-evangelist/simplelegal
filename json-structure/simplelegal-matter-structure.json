@@ -1,0 +1,21 @@
+{
+  "name": "SimpleLegal Matter",
+  "description": "Structure of a legal matter in the SimpleLegal ELM platform.",
+  "fields": [
+    { "name": "id", "type": "string", "description": "Unique matter identifier" },
+    { "name": "name", "type": "string", "description": "Matter name or title", "required": true },
+    { "name": "matter_number", "type": "string", "description": "Internal reference number" },
+    { "name": "status", "type": "string", "description": "Status: open, closed, pending, on_hold" },
+    { "name": "practice_area", "type": "string", "description": "Legal practice area (Litigation, IP, Employment, Contract)" },
+    { "name": "description", "type": "string", "description": "Matter description" },
+    { "name": "client", "type": "string", "description": "Internal client or business unit" },
+    { "name": "lead_attorney", "type": "string", "description": "Primary attorney" },
+    { "name": "outside_counsel", "type": "string", "description": "Outside law firm" },
+    { "name": "budget", "type": "number", "description": "Total budget allocated" },
+    { "name": "actual_spend", "type": "number", "description": "Total actual spend to date" },
+    { "name": "accruals", "type": "number", "description": "Accrued unpaid costs" },
+    { "name": "created_at", "type": "string", "format": "date-time", "description": "Creation timestamp" },
+    { "name": "updated_at", "type": "string", "format": "date-time", "description": "Last modification timestamp" },
+    { "name": "custom_fields", "type": "object", "description": "Organization-specific custom fields" }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "example": "Create a new legal matter in SimpleLegal",
+  "request": {
+    "method": "POST",
+    "path": "/api/v1/matters",
+    "url": "https://app.simplelegal.com/api/v1/matters",
+    "headers": {
+      "Authorization": "Basic <base64-encoded-credentials>",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "name": "Acme Corp Patent Infringement Defense",
+      "matter_number": "LIT-2026-0042",
+      "status": "open",
+      "practice_area": "Intellectual Property",
+      "description": "Defense against patent infringement claims brought by XYZ Technologies regarding our product line.",
+      "client": "Product Division",
+      "lead_attorney": "Jane Smith",
+      "outside_counsel": "Wilson & Partners LLP",
+      "budget": 250000.00,
+      "custom_fields": {
+        "jurisdiction": "Northern District of California",
+        "court_case_number": "CV-2026-12345",
+        "risk_level": "high"
+      }
+    }
+  },
+  "response": {
+    "status": 201,
+    "body": {
+      "id": "matter-abc123",
+      "name": "Acme Corp Patent Infringement Defense",
+      "matter_number": "LIT-2026-0042",
+      "status": "open",
+      "practice_area": "Intellectual Property",
+      "description": "Defense against patent infringement claims brought by XYZ Technologies regarding our product line.",
+      "client": "Product Division",
+      "lead_attorney": "Jane Smith",
+      "outside_counsel": "Wilson & Partners LLP",
+      "budget": 250000.00,
+      "actual_spend": 0,
+      "accruals": 0,
+      "created_at": "2026-05-02T10:00:00Z",
+      "updated_at": "2026-05-02T10:00:00Z",
+      "custom_fields": {
+        "jurisdiction": "Northern District of California",
+        "court_case_number": "CV-2026-12345",
+        "risk_level": "high"
+      }
+    }
+  }
+}

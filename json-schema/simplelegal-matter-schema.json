@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/simplelegal/refs/heads/main/json-schema/simplelegal-matter-schema.json",
+  "title": "SimpleLegal Matter",
+  "description": "Schema representing a legal matter in the SimpleLegal ELM platform.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique matter identifier."
+    },
+    "name": {
+      "type": "string",
+      "description": "Matter name or title."
+    },
+    "matter_number": {
+      "type": "string",
+      "description": "Internal matter reference number."
+    },
+    "status": {
+      "type": "string",
+      "description": "Current matter status.",
+      "enum": ["open", "closed", "pending", "on_hold"]
+    },
+    "practice_area": {
+      "type": "string",
+      "description": "Legal practice area (e.g., Litigation, IP, Employment, Contract)."
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of the matter."
+    },
+    "client": {
+      "type": "string",
+      "description": "Internal client or business unit for the matter."
+    },
+    "lead_attorney": {
+      "type": "string",
+      "description": "Primary attorney responsible for the matter."
+    },
+    "outside_counsel": {
+      "type": "string",
+      "description": "Outside law firm handling the matter."
+    },
+    "budget": {
+      "type": "number",
+      "format": "float",
+      "description": "Total budget allocated for the matter."
+    },
+    "actual_spend": {
+      "type": "number",
+      "format": "float",
+      "description": "Total actual spend on the matter to date."
+    },
+    "accruals": {
+      "type": "number",
+      "format": "float",
+      "description": "Accrued but unpaid costs for the matter."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the matter was created."
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the matter was last updated."
+    },
+    "custom_fields": {
+      "type": "object",
+      "description": "Custom field values specific to the organization.",
+      "additionalProperties": true
+    }
+  },
+  "required": ["name"]
+}

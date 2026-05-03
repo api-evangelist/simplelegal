@@ -1,0 +1,439 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "SimpleLegal"
+  description: >-
+    SimpleLegal is an enterprise legal management platform providing REST API access
+    to matter management, eBilling, vendor management, cost codes, users, and payment
+    processing for in-house legal departments.
+  tags:
+    - eBilling
+    - Enterprise Legal Management
+    - Invoices
+    - Legal Operations
+    - Legal Spend Management
+    - Matter Management
+    - Vendors
+  created: "2026-05-02"
+  modified: "2026-05-02"
+
+binds:
+  - namespace: env
+    keys:
+      SIMPLELEGAL_USERNAME: SIMPLELEGAL_USERNAME
+      SIMPLELEGAL_PASSWORD: SIMPLELEGAL_PASSWORD
+
+capability:
+  consumes:
+    - type: http
+      namespace: simplelegal
+      baseUri: "https://app.simplelegal.com/api/v1"
+      description: "SimpleLegal REST API for enterprise legal management"
+      authentication:
+        type: basic
+        username: "{{env.SIMPLELEGAL_USERNAME}}"
+        password: "{{env.SIMPLELEGAL_PASSWORD}}"
+      resources:
+        - name: matters
+          path: /matters
+          description: Legal matter management
+          operations:
+            - name: list-matters
+              method: GET
+              description: List all legal matters with pagination
+              inputParameters:
+                - name: page
+                  in: query
+                  type: integer
+                  required: false
+                  description: Page number
+                - name: page_size
+                  in: query
+                  type: integer
+                  required: false
+                  description: Results per page (max 100)
+                - name: status
+                  in: query
+                  type: string
+                  required: false
+                  description: Filter by status (open, closed, pending, on_hold)
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+            - name: create-matter
+              method: POST
+              description: Create a new legal matter
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  name: "{{tools.name}}"
+                  matter_number: "{{tools.matter_number}}"
+                  status: "{{tools.status}}"
+                  practice_area: "{{tools.practice_area}}"
+                  description: "{{tools.description}}"
+                  client: "{{tools.client}}"
+                  budget: "{{tools.budget}}"
+
+            - name: get-matter
+              method: GET
+              description: Get a specific legal matter by ID
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+                  description: Matter ID
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+            - name: update-matter
+              method: PATCH
+              description: Update fields on an existing legal matter
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+                  description: Matter ID
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  status: "{{tools.status}}"
+                  budget: "{{tools.budget}}"
+                  lead_attorney: "{{tools.lead_attorney}}"
+
+        - name: invoices
+          path: /invoices
+          description: Legal invoice eBilling management
+          operations:
+            - name: list-invoices
+              method: GET
+              description: List all invoices with pagination
+              inputParameters:
+                - name: status
+                  in: query
+                  type: string
+                  required: false
+                  description: Filter by invoice status
+                - name: matter_id
+                  in: query
+                  type: string
+                  required: false
+                  description: Filter by matter ID
+                - name: vendor_id
+                  in: query
+                  type: string
+                  required: false
+                  description: Filter by vendor ID
+                - name: page_size
+                  in: query
+                  type: integer
+                  required: false
+                  description: Results per page
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+            - name: create-invoice
+              method: POST
+              description: Submit a new invoice for processing
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  invoice_number: "{{tools.invoice_number}}"
+                  matter_id: "{{tools.matter_id}}"
+                  vendor_id: "{{tools.vendor_id}}"
+                  total_amount: "{{tools.total_amount}}"
+                  currency: "{{tools.currency}}"
+                  invoice_date: "{{tools.invoice_date}}"
+
+            - name: get-invoice
+              method: GET
+              description: Get a specific invoice by ID
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+                  description: Invoice ID
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+            - name: update-invoice
+              method: PATCH
+              description: Update invoice status or fields
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+                  description: Invoice ID
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  status: "{{tools.status}}"
+                  approved_amount: "{{tools.approved_amount}}"
+
+        - name: vendors
+          path: /vendors
+          description: Outside counsel and vendor management
+          operations:
+            - name: list-vendors
+              method: GET
+              description: List all vendors with pagination
+              inputParameters:
+                - name: status
+                  in: query
+                  type: string
+                  required: false
+                  description: Filter by vendor status
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+            - name: create-vendor
+              method: POST
+              description: Create a new vendor
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  name: "{{tools.name}}"
+                  type: "{{tools.type}}"
+                  contact_email: "{{tools.contact_email}}"
+
+            - name: get-vendor
+              method: GET
+              description: Get a specific vendor by ID
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+                  description: Vendor ID
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: cost-codes
+          path: /cost-codes
+          description: Billing and cost code management
+          operations:
+            - name: list-cost-codes
+              method: GET
+              description: List all cost codes
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: users
+          path: /users
+          description: User account management
+          operations:
+            - name: list-users
+              method: GET
+              description: List all users
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+            - name: create-user
+              method: POST
+              description: Create a new user
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  email: "{{tools.email}}"
+                  first_name: "{{tools.first_name}}"
+                  last_name: "{{tools.last_name}}"
+                  role: "{{tools.role}}"
+
+        - name: payments
+          path: /payments
+          description: Invoice payment recording
+          operations:
+            - name: list-payments
+              method: GET
+              description: List all payments
+              inputParameters:
+                - name: invoice_id
+                  in: query
+                  type: string
+                  required: false
+                  description: Filter by invoice ID
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+            - name: create-payment
+              method: POST
+              description: Record a payment for an approved invoice
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  invoice_id: "{{tools.invoice_id}}"
+                  amount: "{{tools.amount}}"
+                  payment_date: "{{tools.payment_date}}"
+                  reference: "{{tools.reference}}"
+
+  exposes:
+    - type: rest
+      port: 8100
+      namespace: simplelegal-rest
+      resources:
+        - path: /v1/matters
+          name: matters
+          description: Legal matters
+          operations:
+            - method: GET
+              name: list-matters
+              description: List matters
+              call: "simplelegal.list-matters"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-matter
+              description: Create matter
+              call: "simplelegal.create-matter"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/matters/{id}
+          name: matter
+          description: Individual matter
+          operations:
+            - method: GET
+              name: get-matter
+              description: Get matter by ID
+              call: "simplelegal.get-matter"
+              with:
+                id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/invoices
+          name: invoices
+          description: Legal invoices
+          operations:
+            - method: GET
+              name: list-invoices
+              description: List invoices
+              call: "simplelegal.list-invoices"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/vendors
+          name: vendors
+          description: Legal vendors
+          operations:
+            - method: GET
+              name: list-vendors
+              description: List vendors
+              call: "simplelegal.list-vendors"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9100
+      namespace: simplelegal-mcp
+      transport: http
+      tools:
+        - name: list-matters
+          description: List legal matters in SimpleLegal
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "simplelegal.list-matters"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: create-matter
+          description: Create a new legal matter in SimpleLegal
+          hints:
+            readOnly: false
+            idempotent: false
+          call: "simplelegal.create-matter"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-invoices
+          description: List legal invoices in SimpleLegal
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "simplelegal.list-invoices"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-vendors
+          description: List outside counsel and vendors in SimpleLegal
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "simplelegal.list-vendors"
+          outputParameters:
+            - type: object
+              mapping: "$."

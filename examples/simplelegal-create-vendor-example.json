@@ -1,0 +1,58 @@
+{
+  "example": "Create a new vendor (law firm) in SimpleLegal",
+  "request": {
+    "method": "POST",
+    "path": "/api/v1/vendors",
+    "url": "https://app.simplelegal.com/api/v1/vendors",
+    "headers": {
+      "Authorization": "Basic <base64-encoded-credentials>",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "name": "Wilson & Partners LLP",
+      "type": "law_firm",
+      "status": "active",
+      "contact_name": "Michael Wilson",
+      "contact_email": "mwilson@wilsonpartners.com",
+      "address": {
+        "street": "123 Market Street, Suite 2000",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94105",
+        "country": "US"
+      },
+      "diversity_info": {
+        "minority_owned": false,
+        "woman_owned": false,
+        "lgbtq_owned": false,
+        "veteran_owned": false
+      }
+    }
+  },
+  "response": {
+    "status": 201,
+    "body": {
+      "id": "vendor-wilson-partners",
+      "name": "Wilson & Partners LLP",
+      "type": "law_firm",
+      "status": "active",
+      "contact_name": "Michael Wilson",
+      "contact_email": "mwilson@wilsonpartners.com",
+      "address": {
+        "street": "123 Market Street, Suite 2000",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94105",
+        "country": "US"
+      },
+      "diversity_info": {
+        "minority_owned": false,
+        "woman_owned": false,
+        "lgbtq_owned": false,
+        "veteran_owned": false
+      },
+      "created_at": "2026-05-02T09:00:00Z",
+      "updated_at": "2026-05-02T09:00:00Z"
+    }
+  }
+}

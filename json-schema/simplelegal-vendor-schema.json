@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/simplelegal/refs/heads/main/json-schema/simplelegal-vendor-schema.json",
+  "title": "SimpleLegal Vendor",
+  "description": "Schema representing a vendor (law firm or legal service provider) in SimpleLegal.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique vendor identifier."
+    },
+    "name": {
+      "type": "string",
+      "description": "Vendor (law firm or service provider) name."
+    },
+    "type": {
+      "type": "string",
+      "description": "Type of vendor.",
+      "enum": ["law_firm", "service_provider", "expert_witness", "other"]
+    },
+    "status": {
+      "type": "string",
+      "description": "Vendor status.",
+      "enum": ["active", "inactive", "preferred", "on_hold"]
+    },
+    "contact_name": {
+      "type": "string",
+      "description": "Primary contact name at the vendor."
+    },
+    "contact_email": {
+      "type": "string",
+      "format": "email",
+      "description": "Primary contact email address."
+    },
+    "address": {
+      "type": "object",
+      "properties": {
+        "street": { "type": "string" },
+        "city": { "type": "string" },
+        "state": { "type": "string" },
+        "zip": { "type": "string" },
+        "country": { "type": "string" }
+      }
+    },
+    "diversity_info": {
+      "type": "object",
+      "description": "Vendor diversity classification information.",
+      "additionalProperties": true
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": ["name"]
+}

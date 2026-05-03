@@ -1,0 +1,71 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "lkif": "http://www.estrellaproject.org/lkif-core/lkif-core.owl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "simplelegal": "https://simplelegal.com/vocab/",
+
+    "LegalMatter": "simplelegal:LegalMatter",
+    "LegalInvoice": "simplelegal:LegalInvoice",
+    "LegalVendor": "simplelegal:LegalVendor",
+    "LegalUser": "simplelegal:LegalUser",
+    "CostCode": "simplelegal:CostCode",
+    "Payment": "schema:Payment",
+    "InvoiceLineItem": "simplelegal:InvoiceLineItem",
+
+    "id": "@id",
+    "name": "schema:name",
+    "description": "schema:description",
+    "status": "simplelegal:status",
+    "createdAt": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "updatedAt": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+
+    "matterNumber": "simplelegal:matterNumber",
+    "practiceArea": "simplelegal:practiceArea",
+    "client": "schema:customer",
+    "leadAttorney": "simplelegal:leadAttorney",
+    "outsideCounsel": "simplelegal:outsideCounsel",
+    "budget": "simplelegal:budget",
+    "actualSpend": "simplelegal:actualSpend",
+    "accruals": "simplelegal:accruals",
+
+    "invoiceNumber": "schema:identifier",
+    "matterId": "simplelegal:matterReference",
+    "vendorId": "schema:seller",
+    "invoiceDate": {
+      "@id": "schema:dateIssued",
+      "@type": "xsd:date"
+    },
+    "dueDate": {
+      "@id": "schema:paymentDueDate",
+      "@type": "xsd:date"
+    },
+    "currency": "schema:currency",
+    "totalAmount": "schema:totalPaymentDue",
+    "approvedAmount": "simplelegal:approvedAmount",
+    "lineItems": "simplelegal:lineItems",
+
+    "taskCode": "simplelegal:taskCode",
+    "activityCode": "simplelegal:activityCode",
+    "timekeeper": "simplelegal:timekeeper",
+    "hours": "simplelegal:hoursWorked",
+    "rate": "schema:price",
+    "amount": "schema:amount",
+
+    "vendorType": "simplelegal:vendorType",
+    "diversityInfo": "simplelegal:diversityInfo",
+    "contactEmail": "schema:email",
+    "contactName": "schema:contactPoint",
+
+    "userRole": "simplelegal:userRole",
+    "department": "schema:department",
+    "email": "schema:email"
+  }
+}

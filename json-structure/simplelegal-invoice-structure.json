@@ -1,0 +1,27 @@
+{
+  "name": "SimpleLegal Invoice",
+  "description": "Structure of a legal invoice in the SimpleLegal eBilling platform.",
+  "fields": [
+    { "name": "id", "type": "string", "description": "Unique invoice identifier" },
+    { "name": "invoice_number", "type": "string", "description": "Vendor invoice reference number", "required": true },
+    { "name": "matter_id", "type": "string", "description": "Associated matter ID", "required": true },
+    { "name": "vendor_id", "type": "string", "description": "Submitting vendor ID", "required": true },
+    { "name": "status", "type": "string", "description": "Status: pending, approved, rejected, paid, disputed, hold" },
+    { "name": "invoice_date", "type": "string", "format": "date", "description": "Invoice issue date" },
+    { "name": "due_date", "type": "string", "format": "date", "description": "Payment due date" },
+    { "name": "currency", "type": "string", "description": "ISO 4217 currency code (USD, EUR, GBP)" },
+    { "name": "total_amount", "type": "number", "description": "Total invoice amount", "required": true },
+    { "name": "approved_amount", "type": "number", "description": "Amount approved for payment" },
+    { "name": "line_items", "type": "array", "description": "Individual billable line items" },
+    { "name": "line_items[].type", "type": "string", "description": "Line item type: fee, expense, tax, discount" },
+    { "name": "line_items[].description", "type": "string", "description": "Work description" },
+    { "name": "line_items[].timekeeper", "type": "string", "description": "Attorney or paralegal name" },
+    { "name": "line_items[].hours", "type": "number", "description": "Hours billed" },
+    { "name": "line_items[].rate", "type": "number", "description": "Hourly rate" },
+    { "name": "line_items[].amount", "type": "number", "description": "Line item total" },
+    { "name": "line_items[].task_code", "type": "string", "description": "UTBMS task code" },
+    { "name": "line_items[].activity_code", "type": "string", "description": "UTBMS activity code" },
+    { "name": "created_at", "type": "string", "format": "date-time", "description": "Creation timestamp" },
+    { "name": "updated_at", "type": "string", "format": "date-time", "description": "Last modification timestamp" }
+  ]
+}
