@@ -3,11 +3,11 @@
   "feeds": [
     {
       "source": "https://www.simplelegal.com/blog/",
-      "feed_url": "https://www.onit.com/feed/",
-      "saved": 10,
-      "title": "Onit"
+      "feed_url": "https://www.simplelegal.com/feed/",
+      "title": "SimpleLegal",
+      "saved": 0
     }
   ],
   "post_count": 10,
-  "fetched": "2026-05-03T23:36:11Z"
+  "fetched": "2026-05-09T20:17:51Z"
 }
