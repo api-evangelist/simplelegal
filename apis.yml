@@ -75,6 +75,9 @@ common:
     url: https://www.simplelegal.com/counselgo
   - type: Legal Requests
     url: https://info.simplelegal.com/legal-requests-datasheet
+integrations:
+  - name: Strategic Alliances
+  - name: Become a Partner
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
