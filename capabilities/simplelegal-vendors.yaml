@@ -1,0 +1,211 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SimpleLegal API — Vendors
+  description: 'SimpleLegal API — Vendors. 4 operations. Lead operation: List Vendors. Self-contained Naftiko capability covering
+    one Simplelegal business surface.'
+  tags:
+  - Simplelegal
+  - Vendors
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SIMPLELEGAL_API_KEY: SIMPLELEGAL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: simplelegal-vendors
+    baseUri: https://app.simplelegal.com/api/v1
+    description: SimpleLegal API — Vendors business capability. Self-contained, no shared references.
+    resources:
+    - name: vendors
+      path: /vendors
+      operations:
+      - name: listvendors
+        method: GET
+        description: List Vendors
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: page
+          in: query
+          type: integer
+          description: Page number.
+        - name: page_size
+          in: query
+          type: integer
+          description: Results per page.
+        - name: status
+          in: query
+          type: string
+          description: Filter by vendor status.
+      - name: createvendor
+        method: POST
+        description: Create Vendor
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: vendors-id
+      path: /vendors/{id}
+      operations:
+      - name: getvendor
+        method: GET
+        description: Get Vendor
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Vendor ID.
+          required: true
+      - name: updatevendor
+        method: PATCH
+        description: Update Vendor
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Vendor ID.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: basic
+      username: '{{env.SIMPLELEGAL_USER}}'
+      password: '{{env.SIMPLELEGAL_PASS}}'
+  exposes:
+  - type: rest
+    namespace: simplelegal-vendors-rest
+    port: 8080
+    description: REST adapter for SimpleLegal API — Vendors. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/vendors
+      name: vendors
+      description: REST surface for vendors.
+      operations:
+      - method: GET
+        name: listvendors
+        description: List Vendors
+        call: simplelegal-vendors.listvendors
+        with:
+          page: rest.page
+          page_size: rest.page_size
+          status: rest.status
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createvendor
+        description: Create Vendor
+        call: simplelegal-vendors.createvendor
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/vendors/{id}
+      name: vendors-id
+      description: REST surface for vendors-id.
+      operations:
+      - method: GET
+        name: getvendor
+        description: Get Vendor
+        call: simplelegal-vendors.getvendor
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updatevendor
+        description: Update Vendor
+        call: simplelegal-vendors.updatevendor
+        with:
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: simplelegal-vendors-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SimpleLegal API — Vendors. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: list-vendors
+      description: List Vendors
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: simplelegal-vendors.listvendors
+      with:
+        page: tools.page
+        page_size: tools.page_size
+        status: tools.status
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-vendor
+      description: Create Vendor
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: simplelegal-vendors.createvendor
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-vendor
+      description: Get Vendor
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: simplelegal-vendors.getvendor
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-vendor
+      description: Update Vendor
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: simplelegal-vendors.updatevendor
+      with:
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
