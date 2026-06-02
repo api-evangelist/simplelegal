@@ -2,12 +2,20 @@
   "repo": "simplelegal",
   "feeds": [
     {
-      "source": "https://www.simplelegal.com/blog/",
+      "source": "https://www.simplelegal.com/feed/",
       "feed_url": "https://www.simplelegal.com/feed/",
-      "title": "SimpleLegal",
-      "saved": 10
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://developer.simplelegal.com/",
+      "feed_url": "https://developer.simplelegal.com/",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
   "post_count": 20,
-  "fetched": "2026-05-17T20:20:35Z"
+  "fetched": "2026-06-01T23:35:02Z"
 }
