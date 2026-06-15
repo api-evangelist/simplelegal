@@ -1,0 +1,2129 @@
+{
+  "item": [
+    {
+      "id": "78fdcd8c-92b8-48eb-b191-08627ff9eb40",
+      "name": "Matters",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "819a1d66-f27e-4c6e-8d4b-403dda710520",
+          "name": "List Matters",
+          "request": {
+            "name": "List Matters",
+            "description": {
+              "content": "Retrieve a paginated list of legal matters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "matters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "25",
+                  "description": "Number of results per page (max 100)."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter matters by status."
+                },
+                {
+                  "disabled": false,
+                  "key": "practice_area",
+                  "value": "<string>",
+                  "description": "Filter matters by practice area."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c3d2ca24-06c9-40ed-95a4-a460da27b833",
+              "name": "Paginated list of matters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "matters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "25"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "practice_area",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 398,\n  \"next\": \"string\",\n  \"previous\": \"string\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"id\": \"string\",\n      \"matter_number\": \"string\",\n      \"status\": \"closed\",\n      \"practice_area\": \"string\",\n      \"description\": \"string\",\n      \"client\": \"string\",\n      \"lead_attorney\": \"string\",\n      \"outside_counsel\": \"string\",\n      \"budget\": 6305.181140383625,\n      \"actual_spend\": 17.256748797938037,\n      \"accruals\": 832.8607013749745,\n      \"created_at\": \"1949-04-13T02:56:44.183Z\",\n      \"updated_at\": \"1975-04-20T17:42:57.206Z\",\n      \"custom_fields\": {\n        \"key_0\": \"string\",\n        \"key_1\": true\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"id\": \"string\",\n      \"matter_number\": \"string\",\n      \"status\": \"closed\",\n      \"practice_area\": \"string\",\n      \"description\": \"string\",\n      \"client\": \"string\",\n      \"lead_attorney\": \"string\",\n      \"outside_counsel\": \"string\",\n      \"budget\": 2021.7140742709605,\n      \"actual_spend\": 7946.414046023277,\n      \"accruals\": 5879.346058976408,\n      \"created_at\": \"1948-04-11T17:57:47.015Z\",\n      \"updated_at\": \"1999-10-27T03:14:25.016Z\",\n      \"custom_fields\": {\n        \"key_0\": 5859.811729294948\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a5ccbfe3-b140-4142-a250-e006eed3fcf0",
+              "name": "Authentication required.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "matters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "25"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "practice_area",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\",\n  \"code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6a90d4b9-8e89-4d75-acc9-d6e72e93eec5",
+          "name": "Create Matter",
+          "request": {
+            "name": "Create Matter",
+            "description": {
+              "content": "Create a new legal matter.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "matters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"id\": \"<string>\",\n  \"matter_number\": \"<string>\",\n  \"status\": \"<string>\",\n  \"practice_area\": \"<string>\",\n  \"description\": \"<string>\",\n  \"client\": \"<string>\",\n  \"lead_attorney\": \"<string>\",\n  \"outside_counsel\": \"<string>\",\n  \"budget\": \"<float>\",\n  \"actual_spend\": \"<float>\",\n  \"accruals\": \"<float>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"custom_fields\": {\n    \"key_0\": 2492.3479830701835,\n    \"key_1\": false\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d6bf9dbe-cc35-4237-9820-8a0086e6af01",
+              "name": "Matter created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "matters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"id\": \"<string>\",\n  \"matter_number\": \"<string>\",\n  \"status\": \"<string>\",\n  \"practice_area\": \"<string>\",\n  \"description\": \"<string>\",\n  \"client\": \"<string>\",\n  \"lead_attorney\": \"<string>\",\n  \"outside_counsel\": \"<string>\",\n  \"budget\": \"<float>\",\n  \"actual_spend\": \"<float>\",\n  \"accruals\": \"<float>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"custom_fields\": {\n    \"key_0\": 311,\n    \"key_1\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"id\": \"<string>\",\n  \"matter_number\": \"<string>\",\n  \"status\": \"<string>\",\n  \"practice_area\": \"<string>\",\n  \"description\": \"<string>\",\n  \"client\": \"<string>\",\n  \"lead_attorney\": \"<string>\",\n  \"outside_counsel\": \"<string>\",\n  \"budget\": \"<float>\",\n  \"actual_spend\": \"<float>\",\n  \"accruals\": \"<float>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"custom_fields\": {\n    \"key_0\": 311,\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cb47b362-9a1a-4dc5-9277-d26d4b64a00b",
+              "name": "Invalid request data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "matters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"id\": \"<string>\",\n  \"matter_number\": \"<string>\",\n  \"status\": \"<string>\",\n  \"practice_area\": \"<string>\",\n  \"description\": \"<string>\",\n  \"client\": \"<string>\",\n  \"lead_attorney\": \"<string>\",\n  \"outside_counsel\": \"<string>\",\n  \"budget\": \"<float>\",\n  \"actual_spend\": \"<float>\",\n  \"accruals\": \"<float>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"custom_fields\": {\n    \"key_0\": 311,\n    \"key_1\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\",\n  \"code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7bc86ce2-b466-4b95-ae29-6fafc56e187d",
+          "name": "Get Matter",
+          "request": {
+            "name": "Get Matter",
+            "description": {
+              "content": "Retrieve a specific legal matter by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "matters",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Matter ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "800ce9bf-010c-45e5-855b-f9384b6a4d2f",
+              "name": "Matter details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "matters",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Matter ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"id\": \"<string>\",\n  \"matter_number\": \"<string>\",\n  \"status\": \"<string>\",\n  \"practice_area\": \"<string>\",\n  \"description\": \"<string>\",\n  \"client\": \"<string>\",\n  \"lead_attorney\": \"<string>\",\n  \"outside_counsel\": \"<string>\",\n  \"budget\": \"<float>\",\n  \"actual_spend\": \"<float>\",\n  \"accruals\": \"<float>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"custom_fields\": {\n    \"key_0\": 311,\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f93954d5-8504-4033-8ec2-d598cc3b884f",
+              "name": "Matter not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "matters",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Matter ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\",\n  \"code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a4ee0885-20f3-428d-b8a3-e275749be7ac",
+          "name": "Update Matter",
+          "request": {
+            "name": "Update Matter",
+            "description": {
+              "content": "Update fields on an existing legal matter.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "matters",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Matter ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"id\": \"<string>\",\n  \"matter_number\": \"<string>\",\n  \"status\": \"<string>\",\n  \"practice_area\": \"<string>\",\n  \"description\": \"<string>\",\n  \"client\": \"<string>\",\n  \"lead_attorney\": \"<string>\",\n  \"outside_counsel\": \"<string>\",\n  \"budget\": \"<float>\",\n  \"actual_spend\": \"<float>\",\n  \"accruals\": \"<float>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"custom_fields\": {\n    \"key_0\": 2492.3479830701835,\n    \"key_1\": false\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "12cbd77c-ee9d-4ccb-8409-776baaa4b7a3",
+              "name": "Updated matter.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "matters",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Matter ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"id\": \"<string>\",\n  \"matter_number\": \"<string>\",\n  \"status\": \"<string>\",\n  \"practice_area\": \"<string>\",\n  \"description\": \"<string>\",\n  \"client\": \"<string>\",\n  \"lead_attorney\": \"<string>\",\n  \"outside_counsel\": \"<string>\",\n  \"budget\": \"<float>\",\n  \"actual_spend\": \"<float>\",\n  \"accruals\": \"<float>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"custom_fields\": {\n    \"key_0\": 311,\n    \"key_1\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"id\": \"<string>\",\n  \"matter_number\": \"<string>\",\n  \"status\": \"<string>\",\n  \"practice_area\": \"<string>\",\n  \"description\": \"<string>\",\n  \"client\": \"<string>\",\n  \"lead_attorney\": \"<string>\",\n  \"outside_counsel\": \"<string>\",\n  \"budget\": \"<float>\",\n  \"actual_spend\": \"<float>\",\n  \"accruals\": \"<float>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"custom_fields\": {\n    \"key_0\": 311,\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "8eae8cf2-7e51-466a-b5aa-8bd2f2e563d1",
+      "name": "Invoices",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "00496232-ffe3-4beb-b405-fe66775c9244",
+          "name": "List Invoices",
+          "request": {
+            "name": "List Invoices",
+            "description": {
+              "content": "Retrieve a paginated list of invoices.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "invoices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "25",
+                  "description": "Results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter by invoice status."
+                },
+                {
+                  "disabled": false,
+                  "key": "matter_id",
+                  "value": "<string>",
+                  "description": "Filter invoices by matter ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "vendor_id",
+                  "value": "<string>",
+                  "description": "Filter invoices by vendor ID."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c4e6c309-999e-47fc-bdff-5932f6bfb4cf",
+              "name": "Paginated list of invoices.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "25"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "matter_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "vendor_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 5425,\n  \"next\": \"string\",\n  \"previous\": \"string\",\n  \"results\": [\n    {\n      \"invoice_number\": \"string\",\n      \"matter_id\": \"string\",\n      \"vendor_id\": \"string\",\n      \"total_amount\": 4102.229710477145,\n      \"id\": \"string\",\n      \"status\": \"hold\",\n      \"invoice_date\": \"1970-06-06\",\n      \"due_date\": \"1999-02-27\",\n      \"currency\": \"string\",\n      \"approved_amount\": 3878.8535869072316,\n      \"line_items\": [\n        {\n          \"id\": \"string\",\n          \"type\": \"discount\",\n          \"description\": \"string\",\n          \"timekeeper\": \"string\",\n          \"hours\": 9793.77927948753,\n          \"rate\": 8368.997128970983,\n          \"amount\": 7866.357136350549,\n          \"task_code\": \"string\",\n          \"activity_code\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"type\": \"fee\",\n          \"description\": \"string\",\n          \"timekeeper\": \"string\",\n          \"hours\": 4842.232883918489,\n          \"rate\": 617.1868099486311,\n          \"amount\": 8698.720578088476,\n          \"task_code\": \"string\",\n          \"activity_code\": \"string\"\n        }\n      ],\n      \"created_at\": \"1963-03-12T23:25:14.850Z\",\n      \"updated_at\": \"2026-05-22T16:49:51.759Z\"\n    },\n    {\n      \"invoice_number\": \"string\",\n      \"matter_id\": \"string\",\n      \"vendor_id\": \"string\",\n      \"total_amount\": 1214.8585046198257,\n      \"id\": \"string\",\n      \"status\": \"paid\",\n      \"invoice_date\": \"1989-01-06\",\n      \"due_date\": \"2004-07-09\",\n      \"currency\": \"string\",\n      \"approved_amount\": 4884.771387829887,\n      \"line_items\": [\n        {\n          \"id\": \"string\",\n          \"type\": \"fee\",\n          \"description\": \"string\",\n          \"timekeeper\": \"string\",\n          \"hours\": 3384.0397005557766,\n          \"rate\": 5160.657380034357,\n          \"amount\": 9098.49139059759,\n          \"task_code\": \"string\",\n          \"activity_code\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"type\": \"tax\",\n          \"description\": \"string\",\n          \"timekeeper\": \"string\",\n          \"hours\": 3411.151078602618,\n          \"rate\": 917.3528584154756,\n          \"amount\": 2168.7083678789686,\n          \"task_code\": \"string\",\n          \"activity_code\": \"string\"\n        }\n      ],\n      \"created_at\": \"1971-12-05T17:50:49.481Z\",\n      \"updated_at\": \"2019-01-16T20:24:23.516Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1322c350-be79-41b5-867d-e5ff1f416cfc",
+          "name": "Create Invoice",
+          "request": {
+            "name": "Create Invoice",
+            "description": {
+              "content": "Submit a new invoice for processing.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "invoices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"invoice_number\": \"<string>\",\n  \"matter_id\": \"<string>\",\n  \"vendor_id\": \"<string>\",\n  \"total_amount\": \"<float>\",\n  \"id\": \"<string>\",\n  \"status\": \"<string>\",\n  \"invoice_date\": \"<date>\",\n  \"due_date\": \"<date>\",\n  \"currency\": \"<string>\",\n  \"approved_amount\": \"<float>\",\n  \"line_items\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"description\": \"<string>\",\n      \"timekeeper\": \"<string>\",\n      \"hours\": \"<float>\",\n      \"rate\": \"<float>\",\n      \"amount\": \"<float>\",\n      \"task_code\": \"<string>\",\n      \"activity_code\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"description\": \"<string>\",\n      \"timekeeper\": \"<string>\",\n      \"hours\": \"<float>\",\n      \"rate\": \"<float>\",\n      \"amount\": \"<float>\",\n      \"task_code\": \"<string>\",\n      \"activity_code\": \"<string>\"\n    }\n  ],\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3677b298-5903-4e0c-87b9-f3646c11a24e",
+              "name": "Invoice created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"invoice_number\": \"<string>\",\n  \"matter_id\": \"<string>\",\n  \"vendor_id\": \"<string>\",\n  \"total_amount\": \"<float>\",\n  \"id\": \"<string>\",\n  \"status\": \"<string>\",\n  \"invoice_date\": \"<date>\",\n  \"due_date\": \"<date>\",\n  \"currency\": \"<string>\",\n  \"approved_amount\": \"<float>\",\n  \"line_items\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"description\": \"<string>\",\n      \"timekeeper\": \"<string>\",\n      \"hours\": \"<float>\",\n      \"rate\": \"<float>\",\n      \"amount\": \"<float>\",\n      \"task_code\": \"<string>\",\n      \"activity_code\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"description\": \"<string>\",\n      \"timekeeper\": \"<string>\",\n      \"hours\": \"<float>\",\n      \"rate\": \"<float>\",\n      \"amount\": \"<float>\",\n      \"task_code\": \"<string>\",\n      \"activity_code\": \"<string>\"\n    }\n  ],\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"invoice_number\": \"<string>\",\n  \"matter_id\": \"<string>\",\n  \"vendor_id\": \"<string>\",\n  \"total_amount\": \"<float>\",\n  \"id\": \"<string>\",\n  \"status\": \"<string>\",\n  \"invoice_date\": \"<date>\",\n  \"due_date\": \"<date>\",\n  \"currency\": \"<string>\",\n  \"approved_amount\": \"<float>\",\n  \"line_items\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"description\": \"<string>\",\n      \"timekeeper\": \"<string>\",\n      \"hours\": \"<float>\",\n      \"rate\": \"<float>\",\n      \"amount\": \"<float>\",\n      \"task_code\": \"<string>\",\n      \"activity_code\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"description\": \"<string>\",\n      \"timekeeper\": \"<string>\",\n      \"hours\": \"<float>\",\n      \"rate\": \"<float>\",\n      \"amount\": \"<float>\",\n      \"task_code\": \"<string>\",\n      \"activity_code\": \"<string>\"\n    }\n  ],\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e7313a86-687d-448f-8cab-9b23cfca304f",
+          "name": "Get Invoice",
+          "request": {
+            "name": "Get Invoice",
+            "description": {
+              "content": "Retrieve a specific invoice by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "invoices",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Invoice ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "50dbaa1e-0a6a-4390-be2f-66f93952cfa1",
+              "name": "Invoice details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Invoice ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"invoice_number\": \"<string>\",\n  \"matter_id\": \"<string>\",\n  \"vendor_id\": \"<string>\",\n  \"total_amount\": \"<float>\",\n  \"id\": \"<string>\",\n  \"status\": \"<string>\",\n  \"invoice_date\": \"<date>\",\n  \"due_date\": \"<date>\",\n  \"currency\": \"<string>\",\n  \"approved_amount\": \"<float>\",\n  \"line_items\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"description\": \"<string>\",\n      \"timekeeper\": \"<string>\",\n      \"hours\": \"<float>\",\n      \"rate\": \"<float>\",\n      \"amount\": \"<float>\",\n      \"task_code\": \"<string>\",\n      \"activity_code\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"description\": \"<string>\",\n      \"timekeeper\": \"<string>\",\n      \"hours\": \"<float>\",\n      \"rate\": \"<float>\",\n      \"amount\": \"<float>\",\n      \"task_code\": \"<string>\",\n      \"activity_code\": \"<string>\"\n    }\n  ],\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "540f9891-76d3-48c7-b2ba-951f731414a9",
+              "name": "Invoice not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Invoice ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\",\n  \"code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "137d0ce8-921a-43a8-bf60-ded7d44b438e",
+          "name": "Update Invoice",
+          "request": {
+            "name": "Update Invoice",
+            "description": {
+              "content": "Update fields on an existing invoice.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "invoices",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Invoice ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"invoice_number\": \"<string>\",\n  \"matter_id\": \"<string>\",\n  \"vendor_id\": \"<string>\",\n  \"total_amount\": \"<float>\",\n  \"id\": \"<string>\",\n  \"status\": \"<string>\",\n  \"invoice_date\": \"<date>\",\n  \"due_date\": \"<date>\",\n  \"currency\": \"<string>\",\n  \"approved_amount\": \"<float>\",\n  \"line_items\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"description\": \"<string>\",\n      \"timekeeper\": \"<string>\",\n      \"hours\": \"<float>\",\n      \"rate\": \"<float>\",\n      \"amount\": \"<float>\",\n      \"task_code\": \"<string>\",\n      \"activity_code\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"description\": \"<string>\",\n      \"timekeeper\": \"<string>\",\n      \"hours\": \"<float>\",\n      \"rate\": \"<float>\",\n      \"amount\": \"<float>\",\n      \"task_code\": \"<string>\",\n      \"activity_code\": \"<string>\"\n    }\n  ],\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "69920915-ce9d-4342-b457-af0f7fe96bcd",
+              "name": "Updated invoice.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Invoice ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"invoice_number\": \"<string>\",\n  \"matter_id\": \"<string>\",\n  \"vendor_id\": \"<string>\",\n  \"total_amount\": \"<float>\",\n  \"id\": \"<string>\",\n  \"status\": \"<string>\",\n  \"invoice_date\": \"<date>\",\n  \"due_date\": \"<date>\",\n  \"currency\": \"<string>\",\n  \"approved_amount\": \"<float>\",\n  \"line_items\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"description\": \"<string>\",\n      \"timekeeper\": \"<string>\",\n      \"hours\": \"<float>\",\n      \"rate\": \"<float>\",\n      \"amount\": \"<float>\",\n      \"task_code\": \"<string>\",\n      \"activity_code\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"description\": \"<string>\",\n      \"timekeeper\": \"<string>\",\n      \"hours\": \"<float>\",\n      \"rate\": \"<float>\",\n      \"amount\": \"<float>\",\n      \"task_code\": \"<string>\",\n      \"activity_code\": \"<string>\"\n    }\n  ],\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"invoice_number\": \"<string>\",\n  \"matter_id\": \"<string>\",\n  \"vendor_id\": \"<string>\",\n  \"total_amount\": \"<float>\",\n  \"id\": \"<string>\",\n  \"status\": \"<string>\",\n  \"invoice_date\": \"<date>\",\n  \"due_date\": \"<date>\",\n  \"currency\": \"<string>\",\n  \"approved_amount\": \"<float>\",\n  \"line_items\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"description\": \"<string>\",\n      \"timekeeper\": \"<string>\",\n      \"hours\": \"<float>\",\n      \"rate\": \"<float>\",\n      \"amount\": \"<float>\",\n      \"task_code\": \"<string>\",\n      \"activity_code\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"description\": \"<string>\",\n      \"timekeeper\": \"<string>\",\n      \"hours\": \"<float>\",\n      \"rate\": \"<float>\",\n      \"amount\": \"<float>\",\n      \"task_code\": \"<string>\",\n      \"activity_code\": \"<string>\"\n    }\n  ],\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "7fb3bf82-28e2-4681-b617-507eb4194aec",
+      "name": "Vendors",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fedf55ca-8950-4815-8f11-2eaca42cf58a",
+          "name": "List Vendors",
+          "request": {
+            "name": "List Vendors",
+            "description": {
+              "content": "Retrieve a paginated list of vendors (law firms and service providers).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vendors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "25",
+                  "description": "Results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter by vendor status."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b97f9d4b-0155-4405-8629-47830eb1db75",
+              "name": "Paginated list of vendors.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "25"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 4335,\n  \"next\": \"string\",\n  \"previous\": \"string\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"id\": \"string\",\n      \"type\": \"expert_witness\",\n      \"status\": \"active\",\n      \"contact_name\": \"string\",\n      \"contact_email\": \"UyqA7ssgdgLtp@qGoxpCiXzGsacrXc.gib\",\n      \"address\": {\n        \"street\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"zip\": \"string\",\n        \"country\": \"string\"\n      },\n      \"diversity_info\": {},\n      \"created_at\": \"2016-07-22T05:57:36.634Z\",\n      \"updated_at\": \"2004-02-11T14:28:50.498Z\"\n    },\n    {\n      \"name\": \"string\",\n      \"id\": \"string\",\n      \"type\": \"other\",\n      \"status\": \"on_hold\",\n      \"contact_name\": \"string\",\n      \"contact_email\": \"j55R@hImYYMrjQWJwRPoS.kk\",\n      \"address\": {\n        \"street\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"zip\": \"string\",\n        \"country\": \"string\"\n      },\n      \"diversity_info\": {},\n      \"created_at\": \"1993-06-04T17:12:27.528Z\",\n      \"updated_at\": \"2023-05-14T15:17:22.138Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d8cd2fca-cef3-4211-9992-bc7e2ceadc4c",
+          "name": "Create Vendor",
+          "request": {
+            "name": "Create Vendor",
+            "description": {
+              "content": "Create a new vendor (law firm or service provider).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vendors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"id\": \"<string>\",\n  \"type\": \"<string>\",\n  \"status\": \"<string>\",\n  \"contact_name\": \"<string>\",\n  \"contact_email\": \"<email>\",\n  \"address\": {\n    \"street\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"diversity_info\": \"<object>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2935dbdb-bb05-49d8-a57d-d8cc8aa41b76",
+              "name": "Vendor created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"id\": \"<string>\",\n  \"type\": \"<string>\",\n  \"status\": \"<string>\",\n  \"contact_name\": \"<string>\",\n  \"contact_email\": \"<email>\",\n  \"address\": {\n    \"street\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"diversity_info\": \"<object>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"id\": \"<string>\",\n  \"type\": \"<string>\",\n  \"status\": \"<string>\",\n  \"contact_name\": \"<string>\",\n  \"contact_email\": \"<email>\",\n  \"address\": {\n    \"street\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"diversity_info\": \"<object>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c21d73e8-e0bf-41cb-9f60-25ac7db5cb00",
+          "name": "Get Vendor",
+          "request": {
+            "name": "Get Vendor",
+            "description": {
+              "content": "Retrieve a specific vendor by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vendors",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Vendor ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f012a96b-9a5d-4f98-86db-2213aaf0b3e5",
+              "name": "Vendor details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Vendor ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"id\": \"<string>\",\n  \"type\": \"<string>\",\n  \"status\": \"<string>\",\n  \"contact_name\": \"<string>\",\n  \"contact_email\": \"<email>\",\n  \"address\": {\n    \"street\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"diversity_info\": \"<object>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "78866d31-294f-4d87-9e1a-98a959d4a24b",
+          "name": "Update Vendor",
+          "request": {
+            "name": "Update Vendor",
+            "description": {
+              "content": "Update fields on an existing vendor.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vendors",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Vendor ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"id\": \"<string>\",\n  \"type\": \"<string>\",\n  \"status\": \"<string>\",\n  \"contact_name\": \"<string>\",\n  \"contact_email\": \"<email>\",\n  \"address\": {\n    \"street\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"diversity_info\": \"<object>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6ae87d62-e00c-453d-a0b2-ec8d4c10b455",
+              "name": "Updated vendor.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vendors",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Vendor ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"id\": \"<string>\",\n  \"type\": \"<string>\",\n  \"status\": \"<string>\",\n  \"contact_name\": \"<string>\",\n  \"contact_email\": \"<email>\",\n  \"address\": {\n    \"street\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"diversity_info\": \"<object>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"id\": \"<string>\",\n  \"type\": \"<string>\",\n  \"status\": \"<string>\",\n  \"contact_name\": \"<string>\",\n  \"contact_email\": \"<email>\",\n  \"address\": {\n    \"street\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"diversity_info\": \"<object>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "4e4ac3b5-aa69-47fa-a9a1-6f1e3034815b",
+      "name": "Cost Codes",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7a707f0c-98f8-46b1-93ce-cf58d39317f7",
+          "name": "List Cost Codes",
+          "request": {
+            "name": "List Cost Codes",
+            "description": {
+              "content": "Retrieve a list of all billing and cost codes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cost-codes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Filter by cost code type."
+                },
+                {
+                  "disabled": false,
+                  "key": "active",
+                  "value": "<boolean>",
+                  "description": "Filter by active status."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1c5ab96c-a56d-4131-901f-de9f562c9b76",
+              "name": "List of cost codes.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cost-codes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 7713,\n  \"next\": \"string\",\n  \"previous\": \"string\",\n  \"results\": [\n    {\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"type\": \"gl\",\n      \"active\": false\n    },\n    {\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"type\": \"custom\",\n      \"active\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "b7622561-a697-4e55-b4ca-60427e7ebc98",
+      "name": "Users",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "91d40077-558b-4fd3-8cd9-f10859ccd53f",
+          "name": "List Users",
+          "request": {
+            "name": "List Users",
+            "description": {
+              "content": "Retrieve a paginated list of platform users.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "25",
+                  "description": "Results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter by user status."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e150834d-dd36-44e1-9647-836fb75afda2",
+              "name": "Paginated list of users.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "25"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 6673,\n  \"next\": \"string\",\n  \"previous\": \"string\",\n  \"results\": [\n    {\n      \"email\": \"958e@rFYUIGzSKqs.qpiw\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"id\": \"string\",\n      \"role\": \"viewer\",\n      \"status\": \"inactive\",\n      \"department\": \"string\",\n      \"created_at\": \"1950-03-01T19:23:16.491Z\"\n    },\n    {\n      \"email\": \"4l7zfn7Q8BDLx@mKVkd.fiep\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"id\": \"string\",\n      \"role\": \"viewer\",\n      \"status\": \"active\",\n      \"department\": \"string\",\n      \"created_at\": \"1948-11-09T15:27:43.105Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "71f5e92c-f2ab-4eaf-8410-bed973041037",
+          "name": "Create User",
+          "request": {
+            "name": "Create User",
+            "description": {
+              "content": "Create a new platform user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<email>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"id\": \"<string>\",\n  \"role\": \"<string>\",\n  \"status\": \"<string>\",\n  \"department\": \"<string>\",\n  \"created_at\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fa2df218-1d0b-409d-a50a-4107184fb235",
+              "name": "User created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<email>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"id\": \"<string>\",\n  \"role\": \"<string>\",\n  \"status\": \"<string>\",\n  \"department\": \"<string>\",\n  \"created_at\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"email\": \"<email>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"id\": \"<string>\",\n  \"role\": \"<string>\",\n  \"status\": \"<string>\",\n  \"department\": \"<string>\",\n  \"created_at\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "868fc825-549d-4cc2-ae0e-ef3af8005301",
+      "name": "Payments",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "16034258-5698-472a-a650-730316a07a78",
+          "name": "List Payments",
+          "request": {
+            "name": "List Payments",
+            "description": {
+              "content": "Retrieve a paginated list of invoice payments.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "25",
+                  "description": "Results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "invoice_id",
+                  "value": "<string>",
+                  "description": "Filter payments by invoice ID."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f474b4ba-6035-4651-a394-199e9df781c6",
+              "name": "Paginated list of payments.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "25"
+                    },
+                    {
+                      "key": "invoice_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 2719,\n  \"next\": \"string\",\n  \"previous\": \"string\",\n  \"results\": [\n    {\n      \"invoice_id\": \"string\",\n      \"amount\": 8548.96572454983,\n      \"payment_date\": \"2002-08-31\",\n      \"id\": \"string\",\n      \"currency\": \"string\",\n      \"reference\": \"string\",\n      \"created_at\": \"1978-05-31T13:51:28.289Z\"\n    },\n    {\n      \"invoice_id\": \"string\",\n      \"amount\": 1844.4478482698944,\n      \"payment_date\": \"1984-10-10\",\n      \"id\": \"string\",\n      \"currency\": \"string\",\n      \"reference\": \"string\",\n      \"created_at\": \"2000-02-19T11:14:48.564Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a4f20d97-83e0-4c2c-83e5-032cdbee7497",
+          "name": "Create Payment",
+          "request": {
+            "name": "Create Payment",
+            "description": {
+              "content": "Record a payment for an approved invoice.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"invoice_id\": \"<string>\",\n  \"amount\": \"<float>\",\n  \"payment_date\": \"<date>\",\n  \"id\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"reference\": \"<string>\",\n  \"created_at\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7ca36e3f-70ff-40e1-982c-8234772ebaaf",
+              "name": "Payment recorded successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"invoice_id\": \"<string>\",\n  \"amount\": \"<float>\",\n  \"payment_date\": \"<date>\",\n  \"id\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"reference\": \"<string>\",\n  \"created_at\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"invoice_id\": \"<string>\",\n  \"amount\": \"<float>\",\n  \"payment_date\": \"<date>\",\n  \"id\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"reference\": \"<string>\",\n  \"created_at\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.simplelegal.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "99a14238-fec9-4228-a4f3-17f0f9d2b817",
+    "name": "SimpleLegal API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The SimpleLegal API is organized around REST. The API has predictable, resource-oriented URLs and uses HTTP response codes to indicate API errors. It uses built-in HTTP features like HTTP authentication and HTTP verbs. JSON is returned by all API responses, including errors. The API supports PATCH methods throughout; POST can be used instead of PATCH for systems that cannot use PATCH. Pagination defaults to 25 items per page and can be configured with the page_size query parameter.\n\nContact Support:\n Name: SimpleLegal Support",
+      "type": "text/plain"
+    }
+  }
+}
