@@ -7,7 +7,7 @@ description: >-
   resource-oriented URLs, enabling integration with ERP and finance systems to eliminate duplicate data entry and
   automate legal operations workflows.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - eBilling
   - Enterprise Legal Management
