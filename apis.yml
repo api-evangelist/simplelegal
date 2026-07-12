@@ -57,6 +57,12 @@ apis:
         url: >-
           https://raw.githubusercontent.com/api-evangelist/simplelegal/refs/heads/main/vocabulary/simplelegal-vocabulary.yml
 common:
+  - type: VulnerabilityDisclosure
+    url: security/simplelegal-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/simplelegal-domain-security.yml
+  - type: Authentication
+    url: authentication/simplelegal-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/simplelegal
   - type: Website
