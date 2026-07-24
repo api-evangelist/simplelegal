@@ -1,0 +1,280 @@
+openapi: 3.0.3
+info:
+  title: SimpleLegal Cost Codes Invoices API
+  description: The SimpleLegal API is organized around REST. The API has predictable, resource-oriented URLs and uses HTTP response codes to indicate API errors. It uses built-in HTTP features like HTTP authentication and HTTP verbs. JSON is returned by all API responses, including errors. The API supports PATCH methods throughout; POST can be used instead of PATCH for systems that cannot use PATCH. Pagination defaults to 25 items per page and can be configured with the page_size query parameter.
+  version: '1.0'
+  contact:
+    name: SimpleLegal Support
+    url: https://support.simplelegal.com/
+  termsOfService: https://www.simplelegal.com/terms-of-service
+servers:
+- url: https://app.simplelegal.com/api/v1
+  description: SimpleLegal Production API
+security:
+- basicAuth: []
+tags:
+- name: Invoices
+paths:
+  /invoices:
+    get:
+      operationId: list-invoices
+      summary: List Invoices
+      description: Retrieve a paginated list of invoices.
+      tags:
+      - Invoices
+      parameters:
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+        description: Page number.
+      - name: page_size
+        in: query
+        schema:
+          type: integer
+          default: 25
+        description: Results per page.
+      - name: status
+        in: query
+        schema:
+          type: string
+          enum:
+          - pending
+          - approved
+          - rejected
+          - paid
+          - disputed
+          - hold
+        description: Filter by invoice status.
+      - name: matter_id
+        in: query
+        schema:
+          type: string
+        description: Filter invoices by matter ID.
+      - name: vendor_id
+        in: query
+        schema:
+          type: string
+        description: Filter invoices by vendor ID.
+      responses:
+        '200':
+          description: Paginated list of invoices.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/PaginatedResponse'
+                - properties:
+                    results:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/Invoice'
+    post:
+      operationId: create-invoice
+      summary: Create Invoice
+      description: Submit a new invoice for processing.
+      tags:
+      - Invoices
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Invoice'
+      responses:
+        '201':
+          description: Invoice created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invoice'
+  /invoices/{id}:
+    get:
+      operationId: get-invoice
+      summary: Get Invoice
+      description: Retrieve a specific invoice by ID.
+      tags:
+      - Invoices
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Invoice ID.
+      responses:
+        '200':
+          description: Invoice details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invoice'
+        '404':
+          description: Invoice not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    patch:
+      operationId: update-invoice
+      summary: Update Invoice
+      description: Update fields on an existing invoice.
+      tags:
+      - Invoices
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Invoice ID.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Invoice'
+      responses:
+        '200':
+          description: Updated invoice.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invoice'
+components:
+  schemas:
+    PaginatedResponse:
+      type: object
+      properties:
+        count:
+          type: integer
+          description: Total number of items matching the query.
+        next:
+          type: string
+          nullable: true
+          description: URL for the next page of results.
+        previous:
+          type: string
+          nullable: true
+          description: URL for the previous page of results.
+        results:
+          type: array
+          description: The paginated list of results.
+          items: {}
+    Invoice:
+      type: object
+      description: A legal invoice submitted by outside counsel or vendors.
+      properties:
+        id:
+          type: string
+          description: Unique invoice identifier.
+        invoice_number:
+          type: string
+          description: Vendor-assigned invoice reference number.
+        matter_id:
+          type: string
+          description: ID of the matter this invoice is associated with.
+        vendor_id:
+          type: string
+          description: ID of the vendor (law firm or service provider) submitting the invoice.
+        status:
+          type: string
+          description: Current invoice processing status.
+          enum:
+          - pending
+          - approved
+          - rejected
+          - paid
+          - disputed
+          - hold
+        invoice_date:
+          type: string
+          format: date
+          description: Date the invoice was issued.
+        due_date:
+          type: string
+          format: date
+          description: Payment due date.
+        currency:
+          type: string
+          description: ISO 4217 currency code (e.g., USD, EUR, GBP).
+        total_amount:
+          type: number
+          format: float
+          description: Total invoice amount before any adjustments.
+        approved_amount:
+          type: number
+          format: float
+          description: Amount approved for payment after review.
+        line_items:
+          type: array
+          description: Individual billable time and expense line items.
+          items:
+            $ref: '#/components/schemas/InvoiceLineItem'
+        created_at:
+          type: string
+          format: date-time
+          description: Timestamp when the invoice was received.
+        updated_at:
+          type: string
+          format: date-time
+          description: Timestamp when the invoice was last updated.
+      required:
+      - invoice_number
+      - matter_id
+      - vendor_id
+      - total_amount
+    InvoiceLineItem:
+      type: object
+      description: An individual time or expense entry on an invoice.
+      properties:
+        id:
+          type: string
+          description: Unique line item identifier.
+        type:
+          type: string
+          description: Type of line item.
+          enum:
+          - fee
+          - expense
+          - tax
+          - discount
+        description:
+          type: string
+          description: Description of the work performed or expense incurred.
+        timekeeper:
+          type: string
+          description: Name of the timekeeper (attorney, paralegal) who performed the work.
+        hours:
+          type: number
+          format: float
+          description: Hours billed for fee entries.
+        rate:
+          type: number
+          format: float
+          description: Hourly rate for fee entries.
+        amount:
+          type: number
+          format: float
+          description: Total amount for this line item.
+        task_code:
+          type: string
+          description: UTBMS task code for the work performed.
+        activity_code:
+          type: string
+          description: UTBMS activity code for the work performed.
+    Error:
+      type: object
+      properties:
+        detail:
+          type: string
+          description: Human-readable error description.
+        code:
+          type: string
+          description: Machine-readable error code.
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic Authentication using your SimpleLegal API credentials.

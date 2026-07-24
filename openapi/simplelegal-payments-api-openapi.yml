@@ -1,0 +1,131 @@
+openapi: 3.0.3
+info:
+  title: SimpleLegal Cost Codes Payments API
+  description: The SimpleLegal API is organized around REST. The API has predictable, resource-oriented URLs and uses HTTP response codes to indicate API errors. It uses built-in HTTP features like HTTP authentication and HTTP verbs. JSON is returned by all API responses, including errors. The API supports PATCH methods throughout; POST can be used instead of PATCH for systems that cannot use PATCH. Pagination defaults to 25 items per page and can be configured with the page_size query parameter.
+  version: '1.0'
+  contact:
+    name: SimpleLegal Support
+    url: https://support.simplelegal.com/
+  termsOfService: https://www.simplelegal.com/terms-of-service
+servers:
+- url: https://app.simplelegal.com/api/v1
+  description: SimpleLegal Production API
+security:
+- basicAuth: []
+tags:
+- name: Payments
+paths:
+  /payments:
+    get:
+      operationId: list-payments
+      summary: List Payments
+      description: Retrieve a paginated list of invoice payments.
+      tags:
+      - Payments
+      parameters:
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+        description: Page number.
+      - name: page_size
+        in: query
+        schema:
+          type: integer
+          default: 25
+        description: Results per page.
+      - name: invoice_id
+        in: query
+        schema:
+          type: string
+        description: Filter payments by invoice ID.
+      responses:
+        '200':
+          description: Paginated list of payments.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/PaginatedResponse'
+                - properties:
+                    results:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/Payment'
+    post:
+      operationId: create-payment
+      summary: Create Payment
+      description: Record a payment for an approved invoice.
+      tags:
+      - Payments
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Payment'
+      responses:
+        '201':
+          description: Payment recorded successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payment'
+components:
+  schemas:
+    Payment:
+      type: object
+      description: A payment record for an approved invoice.
+      properties:
+        id:
+          type: string
+          description: Unique payment identifier.
+        invoice_id:
+          type: string
+          description: ID of the invoice being paid.
+        amount:
+          type: number
+          format: float
+          description: Payment amount.
+        currency:
+          type: string
+          description: ISO 4217 currency code.
+        payment_date:
+          type: string
+          format: date
+          description: Date payment was made.
+        reference:
+          type: string
+          description: Payment reference number (check number, wire reference, etc.).
+        created_at:
+          type: string
+          format: date-time
+          description: Timestamp when the payment was recorded.
+      required:
+      - invoice_id
+      - amount
+      - payment_date
+    PaginatedResponse:
+      type: object
+      properties:
+        count:
+          type: integer
+          description: Total number of items matching the query.
+        next:
+          type: string
+          nullable: true
+          description: URL for the next page of results.
+        previous:
+          type: string
+          nullable: true
+          description: URL for the previous page of results.
+        results:
+          type: array
+          description: The paginated list of results.
+          items: {}
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic Authentication using your SimpleLegal API credentials.

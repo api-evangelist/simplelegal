@@ -1,0 +1,144 @@
+openapi: 3.0.3
+info:
+  title: SimpleLegal Cost Codes Users API
+  description: The SimpleLegal API is organized around REST. The API has predictable, resource-oriented URLs and uses HTTP response codes to indicate API errors. It uses built-in HTTP features like HTTP authentication and HTTP verbs. JSON is returned by all API responses, including errors. The API supports PATCH methods throughout; POST can be used instead of PATCH for systems that cannot use PATCH. Pagination defaults to 25 items per page and can be configured with the page_size query parameter.
+  version: '1.0'
+  contact:
+    name: SimpleLegal Support
+    url: https://support.simplelegal.com/
+  termsOfService: https://www.simplelegal.com/terms-of-service
+servers:
+- url: https://app.simplelegal.com/api/v1
+  description: SimpleLegal Production API
+security:
+- basicAuth: []
+tags:
+- name: Users
+paths:
+  /users:
+    get:
+      operationId: list-users
+      summary: List Users
+      description: Retrieve a paginated list of platform users.
+      tags:
+      - Users
+      parameters:
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+        description: Page number.
+      - name: page_size
+        in: query
+        schema:
+          type: integer
+          default: 25
+        description: Results per page.
+      - name: status
+        in: query
+        schema:
+          type: string
+          enum:
+          - active
+          - inactive
+        description: Filter by user status.
+      responses:
+        '200':
+          description: Paginated list of users.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/PaginatedResponse'
+                - properties:
+                    results:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/User'
+    post:
+      operationId: create-user
+      summary: Create User
+      description: Create a new platform user.
+      tags:
+      - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '201':
+          description: User created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+components:
+  schemas:
+    User:
+      type: object
+      description: A SimpleLegal platform user.
+      properties:
+        id:
+          type: string
+          description: Unique user identifier.
+        email:
+          type: string
+          format: email
+          description: User's email address (login username).
+        first_name:
+          type: string
+          description: User's first name.
+        last_name:
+          type: string
+          description: User's last name.
+        role:
+          type: string
+          description: User role in SimpleLegal.
+          enum:
+          - admin
+          - attorney
+          - manager
+          - viewer
+        status:
+          type: string
+          description: Account status.
+          enum:
+          - active
+          - inactive
+        department:
+          type: string
+          description: Internal department the user belongs to.
+        created_at:
+          type: string
+          format: date-time
+          description: Timestamp when the user was created.
+      required:
+      - email
+      - first_name
+      - last_name
+    PaginatedResponse:
+      type: object
+      properties:
+        count:
+          type: integer
+          description: Total number of items matching the query.
+        next:
+          type: string
+          nullable: true
+          description: URL for the next page of results.
+        previous:
+          type: string
+          nullable: true
+          description: URL for the previous page of results.
+        results:
+          type: array
+          description: The paginated list of results.
+          items: {}
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic Authentication using your SimpleLegal API credentials.

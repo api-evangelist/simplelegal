@@ -1,0 +1,108 @@
+openapi: 3.0.3
+info:
+  title: SimpleLegal Cost Codes API
+  description: The SimpleLegal API is organized around REST. The API has predictable, resource-oriented URLs and uses HTTP response codes to indicate API errors. It uses built-in HTTP features like HTTP authentication and HTTP verbs. JSON is returned by all API responses, including errors. The API supports PATCH methods throughout; POST can be used instead of PATCH for systems that cannot use PATCH. Pagination defaults to 25 items per page and can be configured with the page_size query parameter.
+  version: '1.0'
+  contact:
+    name: SimpleLegal Support
+    url: https://support.simplelegal.com/
+  termsOfService: https://www.simplelegal.com/terms-of-service
+servers:
+- url: https://app.simplelegal.com/api/v1
+  description: SimpleLegal Production API
+security:
+- basicAuth: []
+tags:
+- name: Cost Codes
+paths:
+  /cost-codes:
+    get:
+      operationId: list-cost-codes
+      summary: List Cost Codes
+      description: Retrieve a list of all billing and cost codes.
+      tags:
+      - Cost Codes
+      parameters:
+      - name: type
+        in: query
+        schema:
+          type: string
+          enum:
+          - task
+          - activity
+          - gl
+          - custom
+        description: Filter by cost code type.
+      - name: active
+        in: query
+        schema:
+          type: boolean
+        description: Filter by active status.
+      responses:
+        '200':
+          description: List of cost codes.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/PaginatedResponse'
+                - properties:
+                    results:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/CostCode'
+components:
+  schemas:
+    CostCode:
+      type: object
+      description: A billing or cost code used to categorize legal spend.
+      properties:
+        id:
+          type: string
+          description: Unique cost code identifier.
+        code:
+          type: string
+          description: The cost code string (e.g., task code, GL code).
+        name:
+          type: string
+          description: Human-readable name for the cost code.
+        description:
+          type: string
+          description: Description of the cost code's purpose.
+        type:
+          type: string
+          description: Type of cost code.
+          enum:
+          - task
+          - activity
+          - gl
+          - custom
+        active:
+          type: boolean
+          description: Whether the cost code is currently active.
+      required:
+      - code
+      - name
+    PaginatedResponse:
+      type: object
+      properties:
+        count:
+          type: integer
+          description: Total number of items matching the query.
+        next:
+          type: string
+          nullable: true
+          description: URL for the next page of results.
+        previous:
+          type: string
+          nullable: true
+          description: URL for the previous page of results.
+        results:
+          type: array
+          description: The paginated list of results.
+          items: {}
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic Authentication using your SimpleLegal API credentials.

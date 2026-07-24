@@ -1,0 +1,211 @@
+openapi: 3.0.3
+info:
+  title: SimpleLegal Cost Codes Vendors API
+  description: The SimpleLegal API is organized around REST. The API has predictable, resource-oriented URLs and uses HTTP response codes to indicate API errors. It uses built-in HTTP features like HTTP authentication and HTTP verbs. JSON is returned by all API responses, including errors. The API supports PATCH methods throughout; POST can be used instead of PATCH for systems that cannot use PATCH. Pagination defaults to 25 items per page and can be configured with the page_size query parameter.
+  version: '1.0'
+  contact:
+    name: SimpleLegal Support
+    url: https://support.simplelegal.com/
+  termsOfService: https://www.simplelegal.com/terms-of-service
+servers:
+- url: https://app.simplelegal.com/api/v1
+  description: SimpleLegal Production API
+security:
+- basicAuth: []
+tags:
+- name: Vendors
+paths:
+  /vendors:
+    get:
+      operationId: list-vendors
+      summary: List Vendors
+      description: Retrieve a paginated list of vendors (law firms and service providers).
+      tags:
+      - Vendors
+      parameters:
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+        description: Page number.
+      - name: page_size
+        in: query
+        schema:
+          type: integer
+          default: 25
+        description: Results per page.
+      - name: status
+        in: query
+        schema:
+          type: string
+          enum:
+          - active
+          - inactive
+          - preferred
+          - on_hold
+        description: Filter by vendor status.
+      responses:
+        '200':
+          description: Paginated list of vendors.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/PaginatedResponse'
+                - properties:
+                    results:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/Vendor'
+    post:
+      operationId: create-vendor
+      summary: Create Vendor
+      description: Create a new vendor (law firm or service provider).
+      tags:
+      - Vendors
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Vendor'
+      responses:
+        '201':
+          description: Vendor created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vendor'
+  /vendors/{id}:
+    get:
+      operationId: get-vendor
+      summary: Get Vendor
+      description: Retrieve a specific vendor by ID.
+      tags:
+      - Vendors
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Vendor ID.
+      responses:
+        '200':
+          description: Vendor details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vendor'
+    patch:
+      operationId: update-vendor
+      summary: Update Vendor
+      description: Update fields on an existing vendor.
+      tags:
+      - Vendors
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Vendor ID.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Vendor'
+      responses:
+        '200':
+          description: Updated vendor.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vendor'
+components:
+  schemas:
+    Vendor:
+      type: object
+      description: An outside counsel law firm or legal service vendor.
+      properties:
+        id:
+          type: string
+          description: Unique vendor identifier.
+        name:
+          type: string
+          description: Vendor (law firm or service provider) name.
+        type:
+          type: string
+          description: Type of vendor.
+          enum:
+          - law_firm
+          - service_provider
+          - expert_witness
+          - other
+        status:
+          type: string
+          description: Vendor status in the system.
+          enum:
+          - active
+          - inactive
+          - preferred
+          - on_hold
+        contact_name:
+          type: string
+          description: Primary contact name at the vendor.
+        contact_email:
+          type: string
+          format: email
+          description: Primary contact email address.
+        address:
+          type: object
+          description: Vendor mailing address.
+          properties:
+            street:
+              type: string
+            city:
+              type: string
+            state:
+              type: string
+            zip:
+              type: string
+            country:
+              type: string
+        diversity_info:
+          type: object
+          description: Vendor diversity classification information.
+        created_at:
+          type: string
+          format: date-time
+          description: Timestamp when the vendor was added.
+        updated_at:
+          type: string
+          format: date-time
+          description: Timestamp when the vendor was last updated.
+      required:
+      - name
+    PaginatedResponse:
+      type: object
+      properties:
+        count:
+          type: integer
+          description: Total number of items matching the query.
+        next:
+          type: string
+          nullable: true
+          description: URL for the next page of results.
+        previous:
+          type: string
+          nullable: true
+          description: URL for the previous page of results.
+        results:
+          type: array
+          description: The paginated list of results.
+          items: {}
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic Authentication using your SimpleLegal API credentials.
