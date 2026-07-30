@@ -7,7 +7,20 @@ description: >-
   resource-oriented URLs, enabling integration with ERP and finance systems to eliminate duplicate data entry and
   automate legal operations workflows.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/simplelegal.png
 tags:
   - eBilling
   - Enterprise Legal Management
@@ -22,40 +35,150 @@ created: '2025-03-01'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: simplelegal:simplelegal
-    name: SimpleLegal API
-    description: >-
-      The SimpleLegal REST API enables programmatic access to legal matter management, invoice processing, vendor
-      management, spend analytics, and legal operations data. The API uses HTTP authentication and supports PATCH and
-      POST methods for updates. All responses return JSON. Pagination is supported with configurable page sizes. The API
-      enables integration with AP/ERP systems to share data bidirectionally, eliminating manual data entry between legal
-      and finance systems.
-    humanURL: https://developer.simplelegal.com/
-    baseURL: https://app.simplelegal.com/api
-    tags:
-      - eBilling
-      - Enterprise Legal Management
-      - Invoices
-      - Legal Operations
-      - Legal Spend Management
-      - Matter Management
-      - Vendors
-    properties:
-      - type: Documentation
-        url: https://developer.simplelegal.com/
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/simplelegal/refs/heads/main/openapi/simplelegal-openapi.yml
-      - type: Website
-        url: https://www.simplelegal.com/
-      - type: Pricing
-        url: https://www.simplelegal.com/pricing
-      - type: Integrations
-        url: https://www.simplelegal.com/integrations
-      - type: Rules
-        url: https://raw.githubusercontent.com/api-evangelist/simplelegal/refs/heads/main/rules/simplelegal-rules.yml
-      - type: Vocabulary
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/simplelegal/refs/heads/main/vocabulary/simplelegal-vocabulary.yml
+- aid: simplelegal:simplelegal-cost-codes-api
+  name: SimpleLegal Cost Codes API
+  description: The Cost Codes API from SimpleLegal — 1 operation(s) for cost codes.
+  humanURL: https://developer.simplelegal.com/
+  baseURL: https://app.simplelegal.com/api
+  tags:
+  - Cost Codes
+  properties:
+  - type: OpenAPI
+    url: openapi/simplelegal-cost-codes-api-openapi.yml
+  - type: Documentation
+    url: https://developer.simplelegal.com/
+  - type: Website
+    url: https://www.simplelegal.com/
+  - type: Pricing
+    url: https://www.simplelegal.com/pricing
+  - type: Integrations
+    url: https://www.simplelegal.com/integrations
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/simplelegal/refs/heads/main/rules/simplelegal-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/simplelegal/refs/heads/main/vocabulary/simplelegal-vocabulary.yml
+- aid: simplelegal:simplelegal-invoices-api
+  name: SimpleLegal Invoices API
+  description: The Invoices API from SimpleLegal — 2 operation(s) for invoices.
+  humanURL: https://developer.simplelegal.com/
+  baseURL: https://app.simplelegal.com/api
+  tags:
+  - Invoices
+  properties:
+  - type: OpenAPI
+    url: openapi/simplelegal-invoices-api-openapi.yml
+  - type: Documentation
+    url: https://developer.simplelegal.com/
+  - type: Website
+    url: https://www.simplelegal.com/
+  - type: Pricing
+    url: https://www.simplelegal.com/pricing
+  - type: Integrations
+    url: https://www.simplelegal.com/integrations
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/simplelegal/refs/heads/main/rules/simplelegal-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/simplelegal/refs/heads/main/vocabulary/simplelegal-vocabulary.yml
+- aid: simplelegal:simplelegal-matters-api
+  name: SimpleLegal Matters API
+  description: The Matters API from SimpleLegal — 2 operation(s) for matters.
+  humanURL: https://developer.simplelegal.com/
+  baseURL: https://app.simplelegal.com/api
+  tags:
+  - Matters
+  properties:
+  - type: OpenAPI
+    url: openapi/simplelegal-matters-api-openapi.yml
+  - type: Documentation
+    url: https://developer.simplelegal.com/
+  - type: Website
+    url: https://www.simplelegal.com/
+  - type: Pricing
+    url: https://www.simplelegal.com/pricing
+  - type: Integrations
+    url: https://www.simplelegal.com/integrations
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/simplelegal/refs/heads/main/rules/simplelegal-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/simplelegal/refs/heads/main/vocabulary/simplelegal-vocabulary.yml
+- aid: simplelegal:simplelegal-payments-api
+  name: SimpleLegal Payments API
+  description: The Payments API from SimpleLegal — 1 operation(s) for payments.
+  humanURL: https://developer.simplelegal.com/
+  baseURL: https://app.simplelegal.com/api
+  tags:
+  - Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/simplelegal-payments-api-openapi.yml
+  - type: Documentation
+    url: https://developer.simplelegal.com/
+  - type: Website
+    url: https://www.simplelegal.com/
+  - type: Pricing
+    url: https://www.simplelegal.com/pricing
+  - type: Integrations
+    url: https://www.simplelegal.com/integrations
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/simplelegal/refs/heads/main/rules/simplelegal-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/simplelegal/refs/heads/main/vocabulary/simplelegal-vocabulary.yml
+- aid: simplelegal:simplelegal-users-api
+  name: SimpleLegal Users API
+  description: The Users API from SimpleLegal — 1 operation(s) for users.
+  humanURL: https://developer.simplelegal.com/
+  baseURL: https://app.simplelegal.com/api
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/simplelegal-users-api-openapi.yml
+  - type: Documentation
+    url: https://developer.simplelegal.com/
+  - type: Website
+    url: https://www.simplelegal.com/
+  - type: Pricing
+    url: https://www.simplelegal.com/pricing
+  - type: Integrations
+    url: https://www.simplelegal.com/integrations
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/simplelegal/refs/heads/main/rules/simplelegal-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/simplelegal/refs/heads/main/vocabulary/simplelegal-vocabulary.yml
+- aid: simplelegal:simplelegal-vendors-api
+  name: SimpleLegal Vendors API
+  description: The Vendors API from SimpleLegal — 2 operation(s) for vendors.
+  humanURL: https://developer.simplelegal.com/
+  baseURL: https://app.simplelegal.com/api
+  tags:
+  - Vendors
+  properties:
+  - type: OpenAPI
+    url: openapi/simplelegal-vendors-api-openapi.yml
+  - type: Documentation
+    url: https://developer.simplelegal.com/
+  - type: Website
+    url: https://www.simplelegal.com/
+  - type: Pricing
+    url: https://www.simplelegal.com/pricing
+  - type: Integrations
+    url: https://www.simplelegal.com/integrations
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/simplelegal/refs/heads/main/rules/simplelegal-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/simplelegal/refs/heads/main/vocabulary/simplelegal-vocabulary.yml
 common:
   - type: AgenticAccess
     url: agentic-access/simplelegal-agentic-access.yml
