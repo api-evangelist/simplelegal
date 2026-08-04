@@ -1,0 +1,24 @@
+{
+  "provider": "simplelegal",
+  "sources": [
+    "simplelegal-cost-codes-api-openapi.yml",
+    "simplelegal-invoices-api-openapi.yml",
+    "simplelegal-matters-api-openapi.yml",
+    "simplelegal-payments-api-openapi.yml",
+    "simplelegal-users-api-openapi.yml",
+    "simplelegal-vendors-api-openapi.yml"
+  ],
+  "outputs": [
+    "simplelegal-cost-codes-api-openapi.yml",
+    "simplelegal-invoices-api-openapi.yml",
+    "simplelegal-matters-api-openapi.yml",
+    "simplelegal-payments-api-openapi.yml",
+    "simplelegal-users-api-openapi.yml",
+    "simplelegal-vendors-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
