@@ -1,0 +1,5 @@
+Canonical: https://www.simplelegal.com/.well-known/security.txt
+Contact: mailto:security.findings@onit.com
+Expires: 2025-12-31T23:59:00Z
+Hiring: https://www.onit.com/careers/
+Policy: https://vdp-policy.s3.us-east-1.amazonaws.com/Vulnerability+Disclosure+Program.pdf
