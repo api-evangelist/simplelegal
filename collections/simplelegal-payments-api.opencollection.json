@@ -1,0 +1,71 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SimpleLegal Cost Codes Payments API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Payments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Payments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.simplelegal.com/api/v1/payments",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Results per page."
+              },
+              {
+                "name": "invoice_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter payments by invoice ID."
+              }
+            ]
+          },
+          "docs": "Retrieve a paginated list of invoice payments."
+        },
+        {
+          "info": {
+            "name": "Create Payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.simplelegal.com/api/v1/payments",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Record a payment for an approved invoice."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

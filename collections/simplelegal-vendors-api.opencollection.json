@@ -1,0 +1,113 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SimpleLegal Cost Codes Vendors API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Vendors",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Vendors",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.simplelegal.com/api/v1/vendors",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Results per page."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by vendor status."
+              }
+            ]
+          },
+          "docs": "Retrieve a paginated list of vendors (law firms and service providers)."
+        },
+        {
+          "info": {
+            "name": "Create Vendor",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.simplelegal.com/api/v1/vendors",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new vendor (law firm or service provider)."
+        },
+        {
+          "info": {
+            "name": "Get Vendor",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.simplelegal.com/api/v1/vendors/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Vendor ID."
+              }
+            ]
+          },
+          "docs": "Retrieve a specific vendor by ID."
+        },
+        {
+          "info": {
+            "name": "Update Vendor",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://app.simplelegal.com/api/v1/vendors/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Vendor ID."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update fields on an existing vendor."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,539 @@
+{
+  "item": [
+    {
+      "id": "7a24f795-7dda-4c48-a841-bfe1d423ae62",
+      "name": "Invoices",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e66f090f-43a1-4a9e-a998-90c2777b845e",
+          "name": "List Invoices",
+          "request": {
+            "name": "List Invoices",
+            "description": {
+              "content": "Retrieve a paginated list of invoices.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "invoices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "25",
+                  "description": "Results per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter by invoice status."
+                },
+                {
+                  "disabled": false,
+                  "key": "matter_id",
+                  "value": "<string>",
+                  "description": "Filter invoices by matter ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "vendor_id",
+                  "value": "<string>",
+                  "description": "Filter invoices by vendor ID."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eace8962-d5b6-4933-a826-13e80699ca85",
+              "name": "Paginated list of invoices.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "25"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "matter_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "vendor_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 6162,\n  \"next\": \"string\",\n  \"previous\": \"string\",\n  \"results\": [\n    {\n      \"invoice_number\": \"string\",\n      \"matter_id\": \"string\",\n      \"vendor_id\": \"string\",\n      \"total_amount\": 9314.270253850618,\n      \"id\": \"string\",\n      \"status\": \"pending\",\n      \"invoice_date\": \"1955-05-04\",\n      \"due_date\": \"1977-03-30\",\n      \"currency\": \"string\",\n      \"approved_amount\": 6463.205546135011,\n      \"line_items\": [\n        {\n          \"id\": \"string\",\n          \"type\": \"fee\",\n          \"description\": \"string\",\n          \"timekeeper\": \"string\",\n          \"hours\": 8872.03867347821,\n          \"rate\": 7849.589509269154,\n          \"amount\": 280.19476690217647,\n          \"task_code\": \"string\",\n          \"activity_code\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"type\": \"tax\",\n          \"description\": \"string\",\n          \"timekeeper\": \"string\",\n          \"hours\": 5963.8984986999085,\n          \"rate\": 1960.9599575545433,\n          \"amount\": 5876.866330516955,\n          \"task_code\": \"string\",\n          \"activity_code\": \"string\"\n        }\n      ],\n      \"created_at\": \"1953-03-28T07:12:14.846Z\",\n      \"updated_at\": \"1972-05-29T00:49:16.519Z\"\n    },\n    {\n      \"invoice_number\": \"string\",\n      \"matter_id\": \"string\",\n      \"vendor_id\": \"string\",\n      \"total_amount\": 428.6260040037948,\n      \"id\": \"string\",\n      \"status\": \"rejected\",\n      \"invoice_date\": \"1994-11-23\",\n      \"due_date\": \"1979-02-05\",\n      \"currency\": \"string\",\n      \"approved_amount\": 5843.513866899139,\n      \"line_items\": [\n        {\n          \"id\": \"string\",\n          \"type\": \"tax\",\n          \"description\": \"string\",\n          \"timekeeper\": \"string\",\n          \"hours\": 408.82287848642784,\n          \"rate\": 4210.330297622148,\n          \"amount\": 3186.7374594328326,\n          \"task_code\": \"string\",\n          \"activity_code\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"type\": \"tax\",\n          \"description\": \"string\",\n          \"timekeeper\": \"string\",\n          \"hours\": 2653.8967038194874,\n          \"rate\": 1988.4656341742245,\n          \"amount\": 5864.441471513601,\n          \"task_code\": \"string\",\n          \"activity_code\": \"string\"\n        }\n      ],\n      \"created_at\": \"2025-04-27T10:05:18.650Z\",\n      \"updated_at\": \"2015-10-18T02:35:28.093Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eb0c1fdd-7364-45b0-845d-3d32417eac96",
+          "name": "Create Invoice",
+          "request": {
+            "name": "Create Invoice",
+            "description": {
+              "content": "Submit a new invoice for processing.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "invoices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"invoice_number\": \"<string>\",\n  \"matter_id\": \"<string>\",\n  \"vendor_id\": \"<string>\",\n  \"total_amount\": \"<float>\",\n  \"id\": \"<string>\",\n  \"status\": \"<string>\",\n  \"invoice_date\": \"<date>\",\n  \"due_date\": \"<date>\",\n  \"currency\": \"<string>\",\n  \"approved_amount\": \"<float>\",\n  \"line_items\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"description\": \"<string>\",\n      \"timekeeper\": \"<string>\",\n      \"hours\": \"<float>\",\n      \"rate\": \"<float>\",\n      \"amount\": \"<float>\",\n      \"task_code\": \"<string>\",\n      \"activity_code\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"description\": \"<string>\",\n      \"timekeeper\": \"<string>\",\n      \"hours\": \"<float>\",\n      \"rate\": \"<float>\",\n      \"amount\": \"<float>\",\n      \"task_code\": \"<string>\",\n      \"activity_code\": \"<string>\"\n    }\n  ],\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dd525759-98f0-4d12-a2cc-beb7969e7f74",
+              "name": "Invoice created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"invoice_number\": \"<string>\",\n  \"matter_id\": \"<string>\",\n  \"vendor_id\": \"<string>\",\n  \"total_amount\": \"<float>\",\n  \"id\": \"<string>\",\n  \"status\": \"<string>\",\n  \"invoice_date\": \"<date>\",\n  \"due_date\": \"<date>\",\n  \"currency\": \"<string>\",\n  \"approved_amount\": \"<float>\",\n  \"line_items\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"description\": \"<string>\",\n      \"timekeeper\": \"<string>\",\n      \"hours\": \"<float>\",\n      \"rate\": \"<float>\",\n      \"amount\": \"<float>\",\n      \"task_code\": \"<string>\",\n      \"activity_code\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"description\": \"<string>\",\n      \"timekeeper\": \"<string>\",\n      \"hours\": \"<float>\",\n      \"rate\": \"<float>\",\n      \"amount\": \"<float>\",\n      \"task_code\": \"<string>\",\n      \"activity_code\": \"<string>\"\n    }\n  ],\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"invoice_number\": \"<string>\",\n  \"matter_id\": \"<string>\",\n  \"vendor_id\": \"<string>\",\n  \"total_amount\": \"<float>\",\n  \"id\": \"<string>\",\n  \"status\": \"<string>\",\n  \"invoice_date\": \"<date>\",\n  \"due_date\": \"<date>\",\n  \"currency\": \"<string>\",\n  \"approved_amount\": \"<float>\",\n  \"line_items\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"description\": \"<string>\",\n      \"timekeeper\": \"<string>\",\n      \"hours\": \"<float>\",\n      \"rate\": \"<float>\",\n      \"amount\": \"<float>\",\n      \"task_code\": \"<string>\",\n      \"activity_code\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"description\": \"<string>\",\n      \"timekeeper\": \"<string>\",\n      \"hours\": \"<float>\",\n      \"rate\": \"<float>\",\n      \"amount\": \"<float>\",\n      \"task_code\": \"<string>\",\n      \"activity_code\": \"<string>\"\n    }\n  ],\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "23c0f10a-1b61-402b-94e0-0f8f74d441b9",
+          "name": "Get Invoice",
+          "request": {
+            "name": "Get Invoice",
+            "description": {
+              "content": "Retrieve a specific invoice by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "invoices",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Invoice ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "84182b8d-9798-4d7d-974b-f7bbc64bb987",
+              "name": "Invoice details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Invoice ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"invoice_number\": \"<string>\",\n  \"matter_id\": \"<string>\",\n  \"vendor_id\": \"<string>\",\n  \"total_amount\": \"<float>\",\n  \"id\": \"<string>\",\n  \"status\": \"<string>\",\n  \"invoice_date\": \"<date>\",\n  \"due_date\": \"<date>\",\n  \"currency\": \"<string>\",\n  \"approved_amount\": \"<float>\",\n  \"line_items\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"description\": \"<string>\",\n      \"timekeeper\": \"<string>\",\n      \"hours\": \"<float>\",\n      \"rate\": \"<float>\",\n      \"amount\": \"<float>\",\n      \"task_code\": \"<string>\",\n      \"activity_code\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"description\": \"<string>\",\n      \"timekeeper\": \"<string>\",\n      \"hours\": \"<float>\",\n      \"rate\": \"<float>\",\n      \"amount\": \"<float>\",\n      \"task_code\": \"<string>\",\n      \"activity_code\": \"<string>\"\n    }\n  ],\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "da20fb9b-b2dd-4800-a4d6-cf7749a33548",
+              "name": "Invoice not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Invoice ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\",\n  \"code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8321fed5-03d3-496f-9447-2e5c0b680c9f",
+          "name": "Update Invoice",
+          "request": {
+            "name": "Update Invoice",
+            "description": {
+              "content": "Update fields on an existing invoice.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "invoices",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Invoice ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"invoice_number\": \"<string>\",\n  \"matter_id\": \"<string>\",\n  \"vendor_id\": \"<string>\",\n  \"total_amount\": \"<float>\",\n  \"id\": \"<string>\",\n  \"status\": \"<string>\",\n  \"invoice_date\": \"<date>\",\n  \"due_date\": \"<date>\",\n  \"currency\": \"<string>\",\n  \"approved_amount\": \"<float>\",\n  \"line_items\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"description\": \"<string>\",\n      \"timekeeper\": \"<string>\",\n      \"hours\": \"<float>\",\n      \"rate\": \"<float>\",\n      \"amount\": \"<float>\",\n      \"task_code\": \"<string>\",\n      \"activity_code\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"description\": \"<string>\",\n      \"timekeeper\": \"<string>\",\n      \"hours\": \"<float>\",\n      \"rate\": \"<float>\",\n      \"amount\": \"<float>\",\n      \"task_code\": \"<string>\",\n      \"activity_code\": \"<string>\"\n    }\n  ],\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6e27c1b0-15fd-40ed-bf28-814a916dbc18",
+              "name": "Updated invoice.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Invoice ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"invoice_number\": \"<string>\",\n  \"matter_id\": \"<string>\",\n  \"vendor_id\": \"<string>\",\n  \"total_amount\": \"<float>\",\n  \"id\": \"<string>\",\n  \"status\": \"<string>\",\n  \"invoice_date\": \"<date>\",\n  \"due_date\": \"<date>\",\n  \"currency\": \"<string>\",\n  \"approved_amount\": \"<float>\",\n  \"line_items\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"description\": \"<string>\",\n      \"timekeeper\": \"<string>\",\n      \"hours\": \"<float>\",\n      \"rate\": \"<float>\",\n      \"amount\": \"<float>\",\n      \"task_code\": \"<string>\",\n      \"activity_code\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"description\": \"<string>\",\n      \"timekeeper\": \"<string>\",\n      \"hours\": \"<float>\",\n      \"rate\": \"<float>\",\n      \"amount\": \"<float>\",\n      \"task_code\": \"<string>\",\n      \"activity_code\": \"<string>\"\n    }\n  ],\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"invoice_number\": \"<string>\",\n  \"matter_id\": \"<string>\",\n  \"vendor_id\": \"<string>\",\n  \"total_amount\": \"<float>\",\n  \"id\": \"<string>\",\n  \"status\": \"<string>\",\n  \"invoice_date\": \"<date>\",\n  \"due_date\": \"<date>\",\n  \"currency\": \"<string>\",\n  \"approved_amount\": \"<float>\",\n  \"line_items\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"description\": \"<string>\",\n      \"timekeeper\": \"<string>\",\n      \"hours\": \"<float>\",\n      \"rate\": \"<float>\",\n      \"amount\": \"<float>\",\n      \"task_code\": \"<string>\",\n      \"activity_code\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"description\": \"<string>\",\n      \"timekeeper\": \"<string>\",\n      \"hours\": \"<float>\",\n      \"rate\": \"<float>\",\n      \"amount\": \"<float>\",\n      \"task_code\": \"<string>\",\n      \"activity_code\": \"<string>\"\n    }\n  ],\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.simplelegal.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "531f0e0d-8911-4b40-9ba3-1e316ee55dc3",
+    "name": "SimpleLegal Cost Codes Invoices API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The SimpleLegal API is organized around REST. The API has predictable, resource-oriented URLs and uses HTTP response codes to indicate API errors. It uses built-in HTTP features like HTTP authentication and HTTP verbs. JSON is returned by all API responses, including errors. The API supports PATCH methods throughout; POST can be used instead of PATCH for systems that cannot use PATCH. Pagination defaults to 25 items per page and can be configured with the page_size query parameter.\n\nContact Support:\n Name: SimpleLegal Support",
+      "type": "text/plain"
+    }
+  }
+}

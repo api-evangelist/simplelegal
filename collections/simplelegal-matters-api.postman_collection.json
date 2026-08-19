@@ -1,0 +1,640 @@
+{
+  "item": [
+    {
+      "id": "d23c7ed4-6387-48ba-acd1-1ca7e1cf9d2e",
+      "name": "Matters",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "375fe60c-2720-4bf5-bfc4-a6a76ce2c65c",
+          "name": "List Matters",
+          "request": {
+            "name": "List Matters",
+            "description": {
+              "content": "Retrieve a paginated list of legal matters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "matters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "25",
+                  "description": "Number of results per page (max 100)."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter matters by status."
+                },
+                {
+                  "disabled": false,
+                  "key": "practice_area",
+                  "value": "<string>",
+                  "description": "Filter matters by practice area."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "66c85607-b751-4a76-a455-1fa6d6027222",
+              "name": "Paginated list of matters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "matters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "25"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "practice_area",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 4910,\n  \"next\": \"string\",\n  \"previous\": \"string\",\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"id\": \"string\",\n      \"matter_number\": \"string\",\n      \"status\": \"open\",\n      \"practice_area\": \"string\",\n      \"description\": \"string\",\n      \"client\": \"string\",\n      \"lead_attorney\": \"string\",\n      \"outside_counsel\": \"string\",\n      \"budget\": 4983.24562147128,\n      \"actual_spend\": 4546.775607570188,\n      \"accruals\": 5668.411643402474,\n      \"created_at\": \"1971-04-17T18:51:52.187Z\",\n      \"updated_at\": \"1987-02-03T11:11:51.339Z\",\n      \"custom_fields\": {\n        \"key_0\": \"string\",\n        \"key_1\": 3198,\n        \"key_2\": 3384\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"id\": \"string\",\n      \"matter_number\": \"string\",\n      \"status\": \"closed\",\n      \"practice_area\": \"string\",\n      \"description\": \"string\",\n      \"client\": \"string\",\n      \"lead_attorney\": \"string\",\n      \"outside_counsel\": \"string\",\n      \"budget\": 1133.3813952563032,\n      \"actual_spend\": 7261.535401036307,\n      \"accruals\": 2748.4682868364894,\n      \"created_at\": \"2020-08-15T03:03:24.619Z\",\n      \"updated_at\": \"2012-03-31T02:50:29.545Z\",\n      \"custom_fields\": {\n        \"key_0\": 1827.1003155747235,\n        \"key_1\": true,\n        \"key_2\": 7095.813005834984,\n        \"key_3\": 7090.59982208261\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a2187118-3ca7-47f0-ac11-5796d1c851d4",
+              "name": "Authentication required.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "matters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "25"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "practice_area",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\",\n  \"code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c21fdcb-d1ef-48a4-8c29-04907583727a",
+          "name": "Create Matter",
+          "request": {
+            "name": "Create Matter",
+            "description": {
+              "content": "Create a new legal matter.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "matters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"id\": \"<string>\",\n  \"matter_number\": \"<string>\",\n  \"status\": \"<string>\",\n  \"practice_area\": \"<string>\",\n  \"description\": \"<string>\",\n  \"client\": \"<string>\",\n  \"lead_attorney\": \"<string>\",\n  \"outside_counsel\": \"<string>\",\n  \"budget\": \"<float>\",\n  \"actual_spend\": \"<float>\",\n  \"accruals\": \"<float>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"custom_fields\": {\n    \"key_0\": 2763.857575857079\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "471cf82a-0e0f-4b69-bf54-797703759967",
+              "name": "Matter created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "matters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"id\": \"<string>\",\n  \"matter_number\": \"<string>\",\n  \"status\": \"<string>\",\n  \"practice_area\": \"<string>\",\n  \"description\": \"<string>\",\n  \"client\": \"<string>\",\n  \"lead_attorney\": \"<string>\",\n  \"outside_counsel\": \"<string>\",\n  \"budget\": \"<float>\",\n  \"actual_spend\": \"<float>\",\n  \"accruals\": \"<float>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"custom_fields\": {\n    \"key_0\": \"string\",\n    \"key_1\": 3906\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"id\": \"<string>\",\n  \"matter_number\": \"<string>\",\n  \"status\": \"<string>\",\n  \"practice_area\": \"<string>\",\n  \"description\": \"<string>\",\n  \"client\": \"<string>\",\n  \"lead_attorney\": \"<string>\",\n  \"outside_counsel\": \"<string>\",\n  \"budget\": \"<float>\",\n  \"actual_spend\": \"<float>\",\n  \"accruals\": \"<float>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"custom_fields\": {\n    \"key_0\": \"string\",\n    \"key_1\": 3906\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a34c4716-d899-45aa-a4a6-618d437923ca",
+              "name": "Invalid request data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "matters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"id\": \"<string>\",\n  \"matter_number\": \"<string>\",\n  \"status\": \"<string>\",\n  \"practice_area\": \"<string>\",\n  \"description\": \"<string>\",\n  \"client\": \"<string>\",\n  \"lead_attorney\": \"<string>\",\n  \"outside_counsel\": \"<string>\",\n  \"budget\": \"<float>\",\n  \"actual_spend\": \"<float>\",\n  \"accruals\": \"<float>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"custom_fields\": {\n    \"key_0\": \"string\",\n    \"key_1\": 3906\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\",\n  \"code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1391bc3d-2458-456a-a1bb-9c2550d51dd3",
+          "name": "Get Matter",
+          "request": {
+            "name": "Get Matter",
+            "description": {
+              "content": "Retrieve a specific legal matter by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "matters",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Matter ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "860bc256-e6ff-437f-858a-dab5c8d4f435",
+              "name": "Matter details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "matters",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Matter ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"id\": \"<string>\",\n  \"matter_number\": \"<string>\",\n  \"status\": \"<string>\",\n  \"practice_area\": \"<string>\",\n  \"description\": \"<string>\",\n  \"client\": \"<string>\",\n  \"lead_attorney\": \"<string>\",\n  \"outside_counsel\": \"<string>\",\n  \"budget\": \"<float>\",\n  \"actual_spend\": \"<float>\",\n  \"accruals\": \"<float>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"custom_fields\": {\n    \"key_0\": \"string\",\n    \"key_1\": 3906\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d3e64a51-9abd-46ec-b65a-863c8cdf1e25",
+              "name": "Matter not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "matters",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Matter ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\",\n  \"code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "14817d24-d579-4f70-8cca-51fa4e0cc9b7",
+          "name": "Update Matter",
+          "request": {
+            "name": "Update Matter",
+            "description": {
+              "content": "Update fields on an existing legal matter.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "matters",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Matter ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"id\": \"<string>\",\n  \"matter_number\": \"<string>\",\n  \"status\": \"<string>\",\n  \"practice_area\": \"<string>\",\n  \"description\": \"<string>\",\n  \"client\": \"<string>\",\n  \"lead_attorney\": \"<string>\",\n  \"outside_counsel\": \"<string>\",\n  \"budget\": \"<float>\",\n  \"actual_spend\": \"<float>\",\n  \"accruals\": \"<float>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"custom_fields\": {\n    \"key_0\": 2763.857575857079\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "206a8a28-7aea-4b79-8082-4b34f9736ad6",
+              "name": "Updated matter.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "matters",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Matter ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"id\": \"<string>\",\n  \"matter_number\": \"<string>\",\n  \"status\": \"<string>\",\n  \"practice_area\": \"<string>\",\n  \"description\": \"<string>\",\n  \"client\": \"<string>\",\n  \"lead_attorney\": \"<string>\",\n  \"outside_counsel\": \"<string>\",\n  \"budget\": \"<float>\",\n  \"actual_spend\": \"<float>\",\n  \"accruals\": \"<float>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"custom_fields\": {\n    \"key_0\": \"string\",\n    \"key_1\": 3906\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"id\": \"<string>\",\n  \"matter_number\": \"<string>\",\n  \"status\": \"<string>\",\n  \"practice_area\": \"<string>\",\n  \"description\": \"<string>\",\n  \"client\": \"<string>\",\n  \"lead_attorney\": \"<string>\",\n  \"outside_counsel\": \"<string>\",\n  \"budget\": \"<float>\",\n  \"actual_spend\": \"<float>\",\n  \"accruals\": \"<float>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"custom_fields\": {\n    \"key_0\": \"string\",\n    \"key_1\": 3906\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.simplelegal.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "30ae09d9-2c60-4842-8cd5-613305d4aeae",
+    "name": "SimpleLegal Cost Codes Matters API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The SimpleLegal API is organized around REST. The API has predictable, resource-oriented URLs and uses HTTP response codes to indicate API errors. It uses built-in HTTP features like HTTP authentication and HTTP verbs. JSON is returned by all API responses, including errors. The API supports PATCH methods throughout; POST can be used instead of PATCH for systems that cannot use PATCH. Pagination defaults to 25 items per page and can be configured with the page_size query parameter.\n\nContact Support:\n Name: SimpleLegal Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SimpleLegal Cost Codes API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Cost Codes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Cost Codes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.simplelegal.com/api/v1/cost-codes",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Filter by cost code type."
+              },
+              {
+                "name": "active",
+                "value": "",
+                "type": "query",
+                "description": "Filter by active status."
+              }
+            ]
+          },
+          "docs": "Retrieve a list of all billing and cost codes."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

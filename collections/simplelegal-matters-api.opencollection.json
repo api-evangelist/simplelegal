@@ -1,0 +1,119 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SimpleLegal Cost Codes Matters API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Matters",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Matters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.simplelegal.com/api/v1/matters",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page (max 100)."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter matters by status."
+              },
+              {
+                "name": "practice_area",
+                "value": "",
+                "type": "query",
+                "description": "Filter matters by practice area."
+              }
+            ]
+          },
+          "docs": "Retrieve a paginated list of legal matters."
+        },
+        {
+          "info": {
+            "name": "Create Matter",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.simplelegal.com/api/v1/matters",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new legal matter."
+        },
+        {
+          "info": {
+            "name": "Get Matter",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.simplelegal.com/api/v1/matters/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Matter ID."
+              }
+            ]
+          },
+          "docs": "Retrieve a specific legal matter by ID."
+        },
+        {
+          "info": {
+            "name": "Update Matter",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://app.simplelegal.com/api/v1/matters/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Matter ID."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update fields on an existing legal matter."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

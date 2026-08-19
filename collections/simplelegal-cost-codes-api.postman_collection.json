@@ -1,0 +1,145 @@
+{
+  "item": [
+    {
+      "id": "dfdb6c40-213b-41c0-8b06-bf4cad1209b2",
+      "name": "Cost Codes",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "50dd0081-e640-49d2-bc03-42828281a732",
+          "name": "List Cost Codes",
+          "request": {
+            "name": "List Cost Codes",
+            "description": {
+              "content": "Retrieve a list of all billing and cost codes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cost-codes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Filter by cost code type."
+                },
+                {
+                  "disabled": false,
+                  "key": "active",
+                  "value": "<boolean>",
+                  "description": "Filter by active status."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d016c0c8-afbe-4b0a-80d8-64e3cc3b37f5",
+              "name": "List of cost codes.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cost-codes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 4226,\n  \"next\": \"string\",\n  \"previous\": \"string\",\n  \"results\": [\n    {\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"type\": \"task\",\n      \"active\": true\n    },\n    {\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"type\": \"activity\",\n      \"active\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.simplelegal.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "cf211f37-5950-4dac-8e2b-b5a97c9a91d3",
+    "name": "SimpleLegal Cost Codes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The SimpleLegal API is organized around REST. The API has predictable, resource-oriented URLs and uses HTTP response codes to indicate API errors. It uses built-in HTTP features like HTTP authentication and HTTP verbs. JSON is returned by all API responses, including errors. The API supports PATCH methods throughout; POST can be used instead of PATCH for systems that cannot use PATCH. Pagination defaults to 25 items per page and can be configured with the page_size query parameter.\n\nContact Support:\n Name: SimpleLegal Support",
+      "type": "text/plain"
+    }
+  }
+}
