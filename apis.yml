@@ -33,7 +33,7 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/simplelegal.png
 tags:
-- E-Billing
+- eBilling
 - Enterprise Legal Management
 - Legal Operations
 - Legal Spend Management
