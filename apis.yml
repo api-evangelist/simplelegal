@@ -25,11 +25,13 @@ accessModel:
   try_now: true
   public: false
   label: Freemium · Self-serve signup
-  confidence: high
+  confidence: medium
   source:
   - plans
   - authentication
-  generated: '2026-07-22'
+  - security
+  - {url: 'https://www.simplelegal.com/', status: 301, note: 'declared website redirects to https://www.onit.com/products/elm/simplelegal/ — a different registrable domain (simplelegal.com -> onit.com), possible rename or acquisition (probed 2026-09-03, roadmap#169)'}
+  generated: '2026-09-03'
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/simplelegal.png
 tags:
@@ -46,7 +48,7 @@ tags_raw:
 - Legal Spend Management
 - Matter Management
 - Vendor Management
-position: Consumer
+position: Consuming
 access: 3rd-Party
 url: https://raw.githubusercontent.com/api-evangelist/simplelegal/refs/heads/main/apis.yml
 created: '2025-03-01'
