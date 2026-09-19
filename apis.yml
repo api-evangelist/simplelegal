@@ -105,6 +105,8 @@ apis:
   humanURL: https://developer.simplelegal.com/
   baseURL: https://app.simplelegal.com/api
   tags:
+  - Matter
+  tags_raw:
   - Matters
   properties:
   - type: OpenAPI
