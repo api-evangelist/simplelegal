@@ -1,12 +1,7 @@
 {
   "provider": "simplelegal",
   "sources": [
-    "simplelegal-cost-codes-api-openapi.yml",
-    "simplelegal-invoices-api-openapi.yml",
-    "simplelegal-matters-api-openapi.yml",
-    "simplelegal-payments-api-openapi.yml",
-    "simplelegal-users-api-openapi.yml",
-    "simplelegal-vendors-api-openapi.yml"
+    "_original/simplelegal-openapi.yml"
   ],
   "outputs": [
     "simplelegal-cost-codes-api-openapi.yml",
@@ -19,6 +14,23 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "simplelegal-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "simplelegal-openapi.yml: declared missing tag: Cost Codes",
+    "simplelegal-openapi.yml: declared missing tag: Invoices",
+    "simplelegal-openapi.yml: declared missing tag: Matters",
+    "simplelegal-openapi.yml: declared missing tag: Payments",
+    "simplelegal-openapi.yml: declared missing tag: Users",
+    "simplelegal-openapi.yml: declared missing tag: Vendors",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "simplelegal-cost-codes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "simplelegal-invoices-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "simplelegal-matters-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "simplelegal-payments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "simplelegal-users-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "simplelegal-vendors-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

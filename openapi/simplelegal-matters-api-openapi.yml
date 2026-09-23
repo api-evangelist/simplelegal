@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: SimpleLegal Cost Codes Matters API
+  title: SimpleLegal Matters API
   description: The SimpleLegal API is organized around REST. The API has predictable, resource-oriented URLs and uses HTTP response codes to indicate API errors. It uses built-in HTTP features like HTTP authentication and HTTP verbs. JSON is returned by all API responses, including errors. The API supports PATCH methods throughout; POST can be used instead of PATCH for systems that cannot use PATCH. Pagination defaults to 25 items per page and can be configured with the page_size query parameter.
   version: '1.0'
   contact:
@@ -150,6 +150,26 @@ paths:
                 $ref: '#/components/schemas/Matter'
 components:
   schemas:
+    PaginatedResponse:
+      type: object
+      properties:
+        count:
+          type: integer
+          description: Total number of items matching the query.
+        next:
+          type:
+          - string
+          - 'null'
+          description: URL for the next page of results.
+        previous:
+          type:
+          - string
+          - 'null'
+          description: URL for the previous page of results.
+        results:
+          type: array
+          description: The paginated list of results.
+          items: {}
     Matter:
       type: object
       description: A legal matter representing a case, project, or legal engagement.
@@ -212,24 +232,6 @@ components:
           additionalProperties: true
       required:
       - name
-    PaginatedResponse:
-      type: object
-      properties:
-        count:
-          type: integer
-          description: Total number of items matching the query.
-        next:
-          type: string
-          nullable: true
-          description: URL for the next page of results.
-        previous:
-          type: string
-          nullable: true
-          description: URL for the previous page of results.
-        results:
-          type: array
-          description: The paginated list of results.
-          items: {}
     Error:
       type: object
       properties:

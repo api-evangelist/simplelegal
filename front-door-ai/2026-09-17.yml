@@ -1,0 +1,29 @@
+# Front Door AI Index — simplelegal — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: simplelegal
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.simplelegal.com
+  final_host: www.onit.com
+  ownership: own
+  owner: simplelegal
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 6
+  host_score: 6
+  density: 3.57
+  words: 1682
+  tiers:
+    agentic: 2
+    core: 4
+    model: 0
+  ambiguous: 9
+  top_terms:
+    automation: 8
+    AI: 3
+    prompts: 2
+    agent: 1
+    generative ai: 1

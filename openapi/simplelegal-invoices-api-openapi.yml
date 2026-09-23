@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: SimpleLegal Cost Codes Invoices API
+  title: SimpleLegal Invoices API
   description: The SimpleLegal API is organized around REST. The API has predictable, resource-oriented URLs and uses HTTP response codes to indicate API errors. It uses built-in HTTP features like HTTP authentication and HTTP verbs. JSON is returned by all API responses, including errors. The API supports PATCH methods throughout; POST can be used instead of PATCH for systems that cannot use PATCH. Pagination defaults to 25 items per page and can be configured with the page_size query parameter.
   version: '1.0'
   contact:
@@ -144,6 +144,45 @@ paths:
                 $ref: '#/components/schemas/Invoice'
 components:
   schemas:
+    InvoiceLineItem:
+      type: object
+      description: An individual time or expense entry on an invoice.
+      properties:
+        id:
+          type: string
+          description: Unique line item identifier.
+        type:
+          type: string
+          description: Type of line item.
+          enum:
+          - fee
+          - expense
+          - tax
+          - discount
+        description:
+          type: string
+          description: Description of the work performed or expense incurred.
+        timekeeper:
+          type: string
+          description: Name of the timekeeper (attorney, paralegal) who performed the work.
+        hours:
+          type: number
+          format: float
+          description: Hours billed for fee entries.
+        rate:
+          type: number
+          format: float
+          description: Hourly rate for fee entries.
+        amount:
+          type: number
+          format: float
+          description: Total amount for this line item.
+        task_code:
+          type: string
+          description: UTBMS task code for the work performed.
+        activity_code:
+          type: string
+          description: UTBMS activity code for the work performed.
     PaginatedResponse:
       type: object
       properties:
@@ -151,17 +190,28 @@ components:
           type: integer
           description: Total number of items matching the query.
         next:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           description: URL for the next page of results.
         previous:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           description: URL for the previous page of results.
         results:
           type: array
           description: The paginated list of results.
           items: {}
+    Error:
+      type: object
+      properties:
+        detail:
+          type: string
+          description: Human-readable error description.
+        code:
+          type: string
+          description: Machine-readable error code.
     Invoice:
       type: object
       description: A legal invoice submitted by outside counsel or vendors.
@@ -225,54 +275,6 @@ components:
       - matter_id
       - vendor_id
       - total_amount
-    InvoiceLineItem:
-      type: object
-      description: An individual time or expense entry on an invoice.
-      properties:
-        id:
-          type: string
-          description: Unique line item identifier.
-        type:
-          type: string
-          description: Type of line item.
-          enum:
-          - fee
-          - expense
-          - tax
-          - discount
-        description:
-          type: string
-          description: Description of the work performed or expense incurred.
-        timekeeper:
-          type: string
-          description: Name of the timekeeper (attorney, paralegal) who performed the work.
-        hours:
-          type: number
-          format: float
-          description: Hours billed for fee entries.
-        rate:
-          type: number
-          format: float
-          description: Hourly rate for fee entries.
-        amount:
-          type: number
-          format: float
-          description: Total amount for this line item.
-        task_code:
-          type: string
-          description: UTBMS task code for the work performed.
-        activity_code:
-          type: string
-          description: UTBMS activity code for the work performed.
-    Error:
-      type: object
-      properties:
-        detail:
-          type: string
-          description: Human-readable error description.
-        code:
-          type: string
-          description: Machine-readable error code.
   securitySchemes:
     basicAuth:
       type: http
