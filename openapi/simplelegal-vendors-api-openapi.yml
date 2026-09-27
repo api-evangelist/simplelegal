@@ -126,26 +126,6 @@ paths:
                 $ref: '#/components/schemas/Vendor'
 components:
   schemas:
-    PaginatedResponse:
-      type: object
-      properties:
-        count:
-          type: integer
-          description: Total number of items matching the query.
-        next:
-          type:
-          - string
-          - 'null'
-          description: URL for the next page of results.
-        previous:
-          type:
-          - string
-          - 'null'
-          description: URL for the previous page of results.
-        results:
-          type: array
-          description: The paginated list of results.
-          items: {}
     Vendor:
       type: object
       description: An outside counsel law firm or legal service vendor.
@@ -206,6 +186,26 @@ components:
           description: Timestamp when the vendor was last updated.
       required:
       - name
+    PaginatedResponse:
+      type: object
+      properties:
+        count:
+          type: integer
+          description: Total number of items matching the query.
+        next:
+          type:
+          - string
+          - 'null'
+          description: URL for the next page of results.
+        previous:
+          type:
+          - string
+          - 'null'
+          description: URL for the previous page of results.
+        results:
+          type: array
+          description: The paginated list of results.
+          items: {}
   securitySchemes:
     basicAuth:
       type: http
