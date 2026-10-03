@@ -144,65 +144,6 @@ paths:
                 $ref: '#/components/schemas/Invoice'
 components:
   schemas:
-    PaginatedResponse:
-      type: object
-      properties:
-        count:
-          type: integer
-          description: Total number of items matching the query.
-        next:
-          type:
-          - string
-          - 'null'
-          description: URL for the next page of results.
-        previous:
-          type:
-          - string
-          - 'null'
-          description: URL for the previous page of results.
-        results:
-          type: array
-          description: The paginated list of results.
-          items: {}
-    InvoiceLineItem:
-      type: object
-      description: An individual time or expense entry on an invoice.
-      properties:
-        id:
-          type: string
-          description: Unique line item identifier.
-        type:
-          type: string
-          description: Type of line item.
-          enum:
-          - fee
-          - expense
-          - tax
-          - discount
-        description:
-          type: string
-          description: Description of the work performed or expense incurred.
-        timekeeper:
-          type: string
-          description: Name of the timekeeper (attorney, paralegal) who performed the work.
-        hours:
-          type: number
-          format: float
-          description: Hours billed for fee entries.
-        rate:
-          type: number
-          format: float
-          description: Hourly rate for fee entries.
-        amount:
-          type: number
-          format: float
-          description: Total amount for this line item.
-        task_code:
-          type: string
-          description: UTBMS task code for the work performed.
-        activity_code:
-          type: string
-          description: UTBMS activity code for the work performed.
     Error:
       type: object
       properties:
@@ -275,6 +216,65 @@ components:
       - matter_id
       - vendor_id
       - total_amount
+    PaginatedResponse:
+      type: object
+      properties:
+        count:
+          type: integer
+          description: Total number of items matching the query.
+        next:
+          type:
+          - string
+          - 'null'
+          description: URL for the next page of results.
+        previous:
+          type:
+          - string
+          - 'null'
+          description: URL for the previous page of results.
+        results:
+          type: array
+          description: The paginated list of results.
+          items: {}
+    InvoiceLineItem:
+      type: object
+      description: An individual time or expense entry on an invoice.
+      properties:
+        id:
+          type: string
+          description: Unique line item identifier.
+        type:
+          type: string
+          description: Type of line item.
+          enum:
+          - fee
+          - expense
+          - tax
+          - discount
+        description:
+          type: string
+          description: Description of the work performed or expense incurred.
+        timekeeper:
+          type: string
+          description: Name of the timekeeper (attorney, paralegal) who performed the work.
+        hours:
+          type: number
+          format: float
+          description: Hours billed for fee entries.
+        rate:
+          type: number
+          format: float
+          description: Hourly rate for fee entries.
+        amount:
+          type: number
+          format: float
+          description: Total amount for this line item.
+        task_code:
+          type: string
+          description: UTBMS task code for the work performed.
+        activity_code:
+          type: string
+          description: UTBMS activity code for the work performed.
   securitySchemes:
     basicAuth:
       type: http
