@@ -150,15 +150,6 @@ paths:
                 $ref: '#/components/schemas/Matter'
 components:
   schemas:
-    Error:
-      type: object
-      properties:
-        detail:
-          type: string
-          description: Human-readable error description.
-        code:
-          type: string
-          description: Machine-readable error code.
     Matter:
       type: object
       description: A legal matter representing a case, project, or legal engagement.
@@ -221,6 +212,15 @@ components:
           additionalProperties: true
       required:
       - name
+    Error:
+      type: object
+      properties:
+        detail:
+          type: string
+          description: Human-readable error description.
+        code:
+          type: string
+          description: Machine-readable error code.
     PaginatedResponse:
       type: object
       properties:
