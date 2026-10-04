@@ -192,6 +192,9 @@ apis:
   - type: Vocabulary
     url: https://raw.githubusercontent.com/api-evangelist/simplelegal/refs/heads/main/vocabulary/simplelegal-vocabulary.yml
 common:
+- type: CapabilityMap
+  url: capabilities/simplelegal-capability-edges.yml
+  name: SimpleLegal Business Capability Map
 - type: AgenticAccess
   url: agentic-access/simplelegal-agentic-access.yml
 - type: VulnerabilityDisclosure
