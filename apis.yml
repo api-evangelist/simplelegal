@@ -192,6 +192,12 @@ apis:
   - type: Vocabulary
     url: https://raw.githubusercontent.com/api-evangelist/simplelegal/refs/heads/main/vocabulary/simplelegal-vocabulary.yml
 common:
+- type: Plans
+  url: plans/simplelegal-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/simplelegal-rate-limits.yml
+- type: FinOps
+  url: finops/simplelegal-finops.yml
 - type: CapabilityMap
   url: capabilities/simplelegal-capability-edges.yml
   name: SimpleLegal Business Capability Map
