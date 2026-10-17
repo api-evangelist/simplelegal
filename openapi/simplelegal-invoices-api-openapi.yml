@@ -144,6 +144,26 @@ paths:
                 $ref: '#/components/schemas/Invoice'
 components:
   schemas:
+    PaginatedResponse:
+      type: object
+      properties:
+        count:
+          type: integer
+          description: Total number of items matching the query.
+        next:
+          type:
+          - string
+          - 'null'
+          description: URL for the next page of results.
+        previous:
+          type:
+          - string
+          - 'null'
+          description: URL for the previous page of results.
+        results:
+          type: array
+          description: The paginated list of results.
+          items: {}
     Invoice:
       type: object
       description: A legal invoice submitted by outside counsel or vendors.
@@ -207,35 +227,6 @@ components:
       - matter_id
       - vendor_id
       - total_amount
-    Error:
-      type: object
-      properties:
-        detail:
-          type: string
-          description: Human-readable error description.
-        code:
-          type: string
-          description: Machine-readable error code.
-    PaginatedResponse:
-      type: object
-      properties:
-        count:
-          type: integer
-          description: Total number of items matching the query.
-        next:
-          type:
-          - string
-          - 'null'
-          description: URL for the next page of results.
-        previous:
-          type:
-          - string
-          - 'null'
-          description: URL for the previous page of results.
-        results:
-          type: array
-          description: The paginated list of results.
-          items: {}
     InvoiceLineItem:
       type: object
       description: An individual time or expense entry on an invoice.
@@ -275,6 +266,15 @@ components:
         activity_code:
           type: string
           description: UTBMS activity code for the work performed.
+    Error:
+      type: object
+      properties:
+        detail:
+          type: string
+          description: Human-readable error description.
+        code:
+          type: string
+          description: Machine-readable error code.
   securitySchemes:
     basicAuth:
       type: http

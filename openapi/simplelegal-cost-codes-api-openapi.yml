@@ -53,6 +53,26 @@ paths:
                         $ref: '#/components/schemas/CostCode'
 components:
   schemas:
+    PaginatedResponse:
+      type: object
+      properties:
+        count:
+          type: integer
+          description: Total number of items matching the query.
+        next:
+          type:
+          - string
+          - 'null'
+          description: URL for the next page of results.
+        previous:
+          type:
+          - string
+          - 'null'
+          description: URL for the previous page of results.
+        results:
+          type: array
+          description: The paginated list of results.
+          items: {}
     CostCode:
       type: object
       description: A billing or cost code used to categorize legal spend.
@@ -83,26 +103,6 @@ components:
       required:
       - code
       - name
-    PaginatedResponse:
-      type: object
-      properties:
-        count:
-          type: integer
-          description: Total number of items matching the query.
-        next:
-          type:
-          - string
-          - 'null'
-          description: URL for the next page of results.
-        previous:
-          type:
-          - string
-          - 'null'
-          description: URL for the previous page of results.
-        results:
-          type: array
-          description: The paginated list of results.
-          items: {}
   securitySchemes:
     basicAuth:
       type: http

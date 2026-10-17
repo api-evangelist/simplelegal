@@ -150,6 +150,26 @@ paths:
                 $ref: '#/components/schemas/Matter'
 components:
   schemas:
+    PaginatedResponse:
+      type: object
+      properties:
+        count:
+          type: integer
+          description: Total number of items matching the query.
+        next:
+          type:
+          - string
+          - 'null'
+          description: URL for the next page of results.
+        previous:
+          type:
+          - string
+          - 'null'
+          description: URL for the previous page of results.
+        results:
+          type: array
+          description: The paginated list of results.
+          items: {}
     Matter:
       type: object
       description: A legal matter representing a case, project, or legal engagement.
@@ -221,26 +241,6 @@ components:
         code:
           type: string
           description: Machine-readable error code.
-    PaginatedResponse:
-      type: object
-      properties:
-        count:
-          type: integer
-          description: Total number of items matching the query.
-        next:
-          type:
-          - string
-          - 'null'
-          description: URL for the next page of results.
-        previous:
-          type:
-          - string
-          - 'null'
-          description: URL for the previous page of results.
-        results:
-          type: array
-          description: The paginated list of results.
-          items: {}
   securitySchemes:
     basicAuth:
       type: http
