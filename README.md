@@ -1,4 +1,4 @@
-# SimpleLegal (simplelegal)
+# SimpleLegal
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,72 +66,169 @@
 
 SimpleLegal is Onit's mid-market enterprise legal management (ELM) platform trusted by 550+ corporate legal departments. It provides matter management, eBilling, spend management, vendor management, legal requests, and legal operations analytics for in-house legal teams. The SimpleLegal API is organized around REST with predictable, resource-oriented URLs, enabling integration with ERP and finance systems to eliminate duplicate data entry and automate legal operations workflows.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/simplelegal/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/simplelegal/refs/heads/main/apis.yml)
+**Areas:** E-Billing · Enterprise Legal Management · Legal Operations · Legal Spend Management · Matter Management · Vendor Management
 
-## Scope
+## SimpleLegal on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for SimpleLegal is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/simplelegal/](https://apis.io/providers/simplelegal/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (6)
 
-- eBilling
-- Enterprise Legal Management
-- Legal Operations
-- Legal Spend Management
-- Matter Management
-- Vendor Management
+- [SimpleLegal Cost Codes API](https://apis.io/apis/simplelegal/simplelegal-cost-codes-api/) — The Cost Codes API from SimpleLegal — 1 operation(s) for cost codes.
+- [SimpleLegal Invoices API](https://apis.io/apis/simplelegal/simplelegal-invoices-api/) — The Invoices API from SimpleLegal — 2 operation(s) for invoices.
+- [SimpleLegal Matters API](https://apis.io/apis/simplelegal/simplelegal-matters-api/) — The Matters API from SimpleLegal — 2 operation(s) for matters.
+- [SimpleLegal Payments API](https://apis.io/apis/simplelegal/simplelegal-payments-api/) — The Payments API from SimpleLegal — 1 operation(s) for payments.
+- [SimpleLegal Users API](https://apis.io/apis/simplelegal/simplelegal-users-api/) — The Users API from SimpleLegal — 1 operation(s) for users.
+- [SimpleLegal Vendors API](https://apis.io/apis/simplelegal/simplelegal-vendors-api/) — The Vendors API from SimpleLegal — 2 operation(s) for vendors.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2025-03-01
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### SimpleLegal API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The SimpleLegal REST API enables programmatic access to legal matter management, invoice processing, vendor management, spend analytics, and legal operations data. The API uses HTTP authentication and supports PATCH and POST methods for updates. All responses return JSON. Pagination is supported with configurable page sizes. The API enables integration with AP/ERP systems to share data bidirectionally, eliminating manual data entry between legal and finance systems.
+- [Simplelegal Agentic Access](https://apis.io/agentic-access/simplelegal/simplelegal-agentic-access/)
 
-- **Human URL:** [https://developer.simplelegal.com/](https://developer.simplelegal.com/)
-- **Base URL:** `https://app.simplelegal.com/api`
+#### JSON Schema (3)
 
-#### Tags
+The data models the API reads and writes.
 
-- eBilling
-- Enterprise Legal Management
-- Invoices
-- Legal Operations
-- Legal Spend Management
-- Matter Management
-- Vendors
+- [SimpleLegal Invoice](https://apis.io/schemas/simplelegal/simplelegal-invoice/)
+- [SimpleLegal Matter](https://apis.io/schemas/simplelegal/simplelegal-matter/)
+- [SimpleLegal Vendor](https://apis.io/schemas/simplelegal/simplelegal-vendor/)
 
-#### Properties
+#### JSON Structure (2)
 
-- [Documentation](https://developer.simplelegal.com/)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/simplelegal/refs/heads/main/openapi/simplelegal-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+Data models expressed in JSON Structure.
+
+- [Simplelegal Invoice Structure](https://apis.io/json-structure/simplelegal/simplelegal-invoice-structure/)
+- [Simplelegal Matter Structure](https://apis.io/json-structure/simplelegal/simplelegal-matter-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Simplelegal Context](https://apis.io/jsonld/simplelegal/simplelegal-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [SimpleLegal Vocabulary](https://apis.io/vocabularies/simplelegal/simplelegal-vocabulary/)
+
+#### Examples (3)
+
+Example requests and responses.
+
+- [Simplelegal Create Matter Example](https://apis.io/examples/simplelegal/simplelegal-create-matter-example/)
+- [Simplelegal Create Vendor Example](https://apis.io/examples/simplelegal/simplelegal-create-vendor-example/)
+- [Simplelegal List Invoices Example](https://apis.io/examples/simplelegal/simplelegal-list-invoices-example/)
+
+#### Collections (7)
+
+Postman and Open Collection request collections.
+
+- [SimpleLegal API](https://apis.io/collections/simplelegal/open-simplelegal/)
+- [SimpleLegal Cost Codes API](https://apis.io/collections/simplelegal/open-simplelegal-cost-codes-api/)
+- [SimpleLegal Cost Codes Invoices API](https://apis.io/collections/simplelegal/open-simplelegal-invoices-api/)
+- [SimpleLegal Cost Codes Matters API](https://apis.io/collections/simplelegal/open-simplelegal-matters-api/)
+- [SimpleLegal Cost Codes Payments API](https://apis.io/collections/simplelegal/open-simplelegal-payments-api/)
+- [SimpleLegal Cost Codes Users API](https://apis.io/collections/simplelegal/open-simplelegal-users-api/)
+- [SimpleLegal Cost Codes Vendors API](https://apis.io/collections/simplelegal/open-simplelegal-vendors-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [SimpleLegal — jsonschema rules](https://apis.io/rules/simplelegal/simplelegal-jsonschema-spectral-rules/)
+- [SimpleLegal API Rules](https://apis.io/rules/simplelegal/simplelegal-rules/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Simplelegal Authentication](https://apis.io/security/simplelegal/simplelegal-authentication/)
+- [Simplelegal Domain Security](https://apis.io/security/simplelegal/simplelegal-domain-security/)
+- [Simplelegal Vulnerability Disclosure](https://apis.io/security/simplelegal/simplelegal-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Simplelegal Plans Pricing](https://apis.io/plans/simplelegal/simplelegal-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Simplelegal Rate Limits](https://apis.io/rate-limits/simplelegal/simplelegal-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Simplelegal Finops](https://apis.io/finops/simplelegal/simplelegal-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.simplelegal.com/)
-- [Pricing](https://www.simplelegal.com/pricing)
-- [Integrations](https://www.simplelegal.com/integrations)
-- [Rules](https://raw.githubusercontent.com/api-evangelist/simplelegal/refs/heads/main/rules/simplelegal-rules.yml)
-- [Vocabulary](https://raw.githubusercontent.com/api-evangelist/simplelegal/refs/heads/main/vocabulary/simplelegal-vocabulary.yml)
-- [Postman Collection](collections/simplelegal.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/simplelegal.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/simplelegal)
-- [Website](https://www.simplelegal.com/)
 - [Documentation](https://developer.simplelegal.com/)
-- [Blog](https://www.simplelegal.com/blog/)
-- [Parent  Company](https://www.onit.com/products/elm/simplelegal/)
-- [Git Hub](https://github.com/SimpleLegal)
 - [Support](https://support.simplelegal.com/)
-- [Counsel G O  Vendor  Portal](https://www.simplelegal.com/counselgo)
-- [Legal  Requests](https://info.simplelegal.com/legal-requests-datasheet)
+- [Blog](https://www.simplelegal.com/blog/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 37.0** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 53.6 |
+| Contract governance | 27.3 |
+| Operational transparency | 23.7 |
+| Developer ergonomics | 26.2 |
+| Access clarity | 25.0 |
+
+**Agent readiness 23.7** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 22.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/simplelegal/](https://apis.io/providers/simplelegal/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for SimpleLegal: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/simplelegal/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
